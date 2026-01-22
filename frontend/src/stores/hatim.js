@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 import { useAuthStore } from './auth'
+import { apiUrl } from '@/utils/apiBase'
 
 export const useHatimStore = defineStore('hatim', () => {
     const authStore = useAuthStore()
@@ -19,7 +20,7 @@ export const useHatimStore = defineStore('hatim', () => {
             ...(authStore.token && { 'Authorization': `Bearer ${authStore.token}` })
         }
 
-        const response = await fetch(url, { ...options, headers })
+        const response = await fetch(apiUrl(url), { ...options, headers })
         const data = await response.json()
 
         if (!response.ok) {

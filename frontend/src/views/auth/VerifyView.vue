@@ -2,6 +2,7 @@
 import { ref, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useAuthStore } from '@/stores/auth'
+import { apiUrl } from '@/utils/apiBase'
 
 const route = useRoute()
 const router = useRouter()
@@ -20,7 +21,7 @@ onMounted(async () => {
   }
 
   try {
-    const response = await fetch('/api/auth/verify', {
+    const response = await fetch(apiUrl('/api/auth/verify'), {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ token })

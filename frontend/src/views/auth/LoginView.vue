@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { apiUrl } from '@/utils/apiBase'
 
 const router = useRouter()
 const email = ref('')
@@ -18,7 +19,7 @@ const sendMagicLink = async () => {
   error.value = ''
 
   try {
-    const response = await fetch('/api/auth/magic-link', {
+    const response = await fetch(apiUrl('/api/auth/magic-link'), {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email: email.value })
