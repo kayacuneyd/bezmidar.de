@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '@/stores/auth'
+import { apiUrl } from '@/utils/apiBase'
 
 const router = useRouter()
 const authStore = useAuthStore()
@@ -29,7 +30,7 @@ const setupProfile = async () => {
   error.value = ''
 
   try {
-    const response = await fetch('/api/users/profile', {
+    const response = await fetch(apiUrl('/api/users/profile'), {
       method: 'PUT',
       headers: { 
         'Content-Type': 'application/json',
