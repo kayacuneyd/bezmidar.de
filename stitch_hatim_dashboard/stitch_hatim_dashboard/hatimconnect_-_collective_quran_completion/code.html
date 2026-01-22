@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+    <title>HatimConnect - Collective Quran Completion</title>
+    
+    <!-- Libraries -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/history@5/umd/history.development.js"></script>
+    <script src="https://unpkg.com/react-router@6.3.0/umd/react-router.development.js"></script>
+    <script src="https://unpkg.com/react-router-dom@6.3.0/umd/react-router-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#19e66b",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#112117",
+                        "emerald-custom": "#10b981",
+                        "card-bg": "#112117",
+                        "charcoal-light": "#29382f",
+                        "charcoal-dark": "#111814",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "3xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Lexend', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .ios-blur {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .islamic-pattern {
+            background-color: #112117;
+            background-image: radial-gradient(#19e66b 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+            opacity: 0.05;
+        }
+        .arabic-text {
+            font-family: 'Amiri', serif;
+            line-height: 2.2;
+            direction: rtl;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .font-variation-fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .chat-container {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        .chat-container::-webkit-scrollbar {
+            display: none;
+        }
+        .progress-circle {
+            background: conic-gradient(#19e66b 216deg, #244732 0deg);
+        }
+        input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            background: transparent;
+            cursor: pointer;
+        }
+        input[type="range"]::-webkit-slider-runnable-track {
+            background: #374151;
+            height: 4px;
+            border-radius: 2px;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            margin-top: -6px;
+            background-color: #19e66b;
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white">
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+        const { createRoot } = ReactDOM;
+        const { MemoryRouter, Routes, Route, Link, useNavigate, useLocation } = ReactRouterDOM;
+
+        // --- Common Components ---
+
+        const BottomNav = () => {
+            const navigate = useNavigate();
+            const location = useLocation();
+            
+            const isActive = (path) => location.pathname === path;
+
+            return (
+                <nav className="fixed bottom-0 left-0 right-0 z-50 bg-background-light/90 dark:bg-background-dark/90 ios-blur border-t border-slate-200 dark:border-white/10 pb-6 pt-2">
+                    <div className="max-w-md mx-auto flex justify-around items-center px-4">
+                        <button onClick={() => navigate('/')} className={`flex flex-col items-center gap-1 ${isActive('/') ? 'text-primary' : 'text-slate-400'}`}>
+                            <span className={`material-symbols-outlined ${isActive('/') ? 'font-variation-fill' : ''}`}>home</span>
+                            <span className="text-[10px] font-medium">Home</span>
+                        </button>
+                        <button onClick={() => navigate('/invite')} className={`flex flex-col items-center gap-1 ${isActive('/invite') ? 'text-primary' : 'text-slate-400'}`}>
+                            <span className={`material-symbols-outlined ${isActive('/invite') ? 'font-variation-fill' : ''}`}>explore</span>
+                            <span className="text-[10px] font-medium">Discover</span>
+                        </button>
+                        <div className="relative -top-5">
+                            <button onClick={() => navigate('/reader')} className="w-14 h-14 rounded-full bg-primary text-background-dark shadow-lg shadow-primary/40 flex items-center justify-center">
+                                <span className="material-symbols-outlined text-3xl">auto_stories</span>
+                            </button>
+                        </div>
+                        <button onClick={() => navigate('/group-chat')} className={`flex flex-col items-center gap-1 ${isActive('/group-chat') ? 'text-primary' : 'text-slate-400'}`}>
+                            <span className={`material-symbols-outlined ${isActive('/group-chat') ? 'font-variation-fill' : ''}`}>group</span>
+                            <span className="text-[10px] font-medium">Groups</span>
+                        </button>
+                        <button onClick={() => navigate('/profile')} className={`flex flex-col items-center gap-1 ${isActive('/profile') ? 'text-primary' : 'text-slate-400'}`}>
+                            <span className={`material-symbols-outlined ${isActive('/profile') ? 'font-variation-fill' : ''}`}>person</span>
+                            <span className="text-[10px] font-medium">Profile</span>
+                        </button>
+                    </div>
+                </nav>
+            );
+        };
+
+        // --- Screens ---
+
+        const Dashboard = () => {
+            const navigate = useNavigate();
+            return (
+                <div className="min-h-screen pb-24">
+                    <div className="fixed inset-0 islamic-pattern pointer-events-none"></div>
+                    <header className="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 ios-blur px-4 py-3 flex items-center justify-between border-b border-slate-200 dark:border-white/10">
+                        <div className="flex items-center gap-3">
+                            <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-background-dark">
+                                <span className="material-symbols-outlined text-lg font-bold">menu_book</span>
+                            </div>
+                            <h1 className="text-lg font-bold tracking-tight">HatimConnect</h1>
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <button className="p-2 text-slate-500 dark:text-slate-400"><span className="material-symbols-outlined">cloud_done</span></button>
+                            <div onClick={() => navigate('/profile')} className="w-8 h-8 rounded-full border-2 border-primary overflow-hidden cursor-pointer">
+                                <div className="w-full h-full bg-cover bg-center" style={{backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuDob2rB44Lu0PMNlCTDHq1QPrmwBfLD6_7zXt5pu4kgAh8RJOz3SRDVotFsHsNsZMjbQOPECZqFvco_rS8nfR4qU8GBzesKcuwZ0u3Y-QGTgy33TfKkpmRJa1J3vxynJfesyDeKqBQXrtAP_DsxBBCdNjBMGNF9DPkyv0i-qUdErLdeABH3XRpD3api7rXtV6yDOqqKokf9p9epYf_L6q8S0U_kjVEz3ftQ-rNWfpMIp6ErekuG3J-BixqEmUSAIaFzLh6KpOpaWRw')"}}></div>
+                            </div>
+                        </div>
+                    </header>
+                    <main className="relative z-10">
+                        <section className="p-4">
+                            <div className="flex flex-col gap-4 sm:flex-row sm:justify-between sm:items-center">
+                                <div className="flex gap-4 items-center">
+                                    <div className="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-16 w-16 border-2 border-primary/30" style={{backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuA3enZy1ILCMg7YLxsx3jqo_HR94P1mmWqexXoC69mj068zFjsitQRZWKXU2zOt_sfHkg_Cs9wNfH6x5ftMH2v5gv2cKi1nYHQLQ3DHqZ-8Cl-C-on0QDBTmiDZ_jvtkMqVxsSJFnFxm-rvx9wc2N379iYGh32EMCJy8KYS9sHJDui_G9VPYbUrd3mmt1KAQHWGS6srsYvx-T8hlSQ_dLTLigmz05B2zLSaX2sMGvoY15EOt2VgEjqqYotpf4i_5vEWVVZIyz_0EVA')"}}></div>
+                                    <div>
+                                        <p className="text-xl font-bold leading-tight tracking-tight">Assalamu Alaikum, Ahmed</p>
+                                        <p className="text-slate-500 dark:text-[#9db8a8] text-sm">Ready for your daily juz?</p>
+                                    </div>
+                                </div>
+                                <button className="flex items-center justify-center gap-2 rounded-xl h-11 px-6 bg-primary text-background-dark font-bold text-sm shadow-lg shadow-primary/20">
+                                    <span className="material-symbols-outlined text-xl">add_circle</span>
+                                    <span>Join New Hatim</span>
+                                </button>
+                            </div>
+                        </section>
+                        <section className="px-4 py-2 flex gap-3 overflow-x-auto no-scrollbar">
+                            {[ {l:"Total Juz", v:"142"}, {l:"Current Streak", v:"12 Days"}, {l:"Global Rank", v:"#482"} ].map((s,i)=>(
+                                <div key={i} className="flex-none bg-white dark:bg-white/5 p-3 rounded-xl border border-slate-200 dark:border-white/10 min-w-[120px]">
+                                    <p className="text-xs text-slate-500 dark:text-slate-400">{s.l}</p>
+                                    <p className="text-lg font-bold">{s.v}</p>
+                                </div>
+                            ))}
+                        </section>
+                        <section>
+                            <div className="flex items-center justify-between px-4 pt-6 pb-2">
+                                <h2 className="text-xl font-bold tracking-tight">Your Active Hatims</h2>
+                                <button className="text-primary text-sm font-semibold">See All</button>
+                            </div>
+                            <div className="p-4" onClick={() => navigate('/session-details')}>
+                                <div className="flex flex-col rounded-xl overflow-hidden shadow-sm bg-white dark:bg-[#1c2620] border border-slate-200 dark:border-white/5 cursor-pointer">
+                                    <div className="w-full h-32 bg-center bg-no-repeat bg-cover relative" style={{backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuBxID5IYVcHDwTeGiq-N4qDhngcGGAGCXYdRKLdNDjI8pHwHmFodRhorHdxqyNg30jTitvDIeewsUIbZIU6tJ0RWtdeWZM4ftHdbC6KR8lCaXcWvwPtDpV_7Zb78UMggOT6HhKJ-_ByjgarV_UeyCmM38XPwF7UakfjQMkZk3uvBpS8Rehsacsee2q7wInOd6xlEwzShuAQEUDQEqcCrdfLr2lFqtpysIDMeI1sDXRMcr_bKdKApb5Tg3Fat43bBTOJ_T1l3_wFQEw')"}}>
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                                        <div className="absolute bottom-3 left-4"><span className="bg-primary/90 text-background-dark text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wider">In Progress</span></div>
+                                    </div>
+                                    <div className="flex flex-col p-4 gap-3">
+                                        <div><h3 className="text-lg font-bold">Ramadan 2024 Group</h3><p className="text-slate-500 dark:text-[#9db8a8] text-sm">Collective Completion • 12 days left</p></div>
+                                        <div className="flex flex-col gap-2">
+                                            <div className="flex justify-between text-xs font-medium"><span>Progress: 15/30 Juz</span><span>50%</span></div>
+                                            <div className="h-2 w-full bg-slate-200 dark:bg-white/10 rounded-full overflow-hidden"><div className="h-full bg-primary rounded-full" style={{width: "50%"}}></div></div>
+                                        </div>
+                                        <button onClick={(e)=>{e.stopPropagation(); navigate('/reader');}} className="w-full mt-2 py-2.5 rounded-lg bg-primary/10 dark:bg-primary/20 text-primary font-bold text-sm border border-primary/20 flex items-center justify-center gap-2">
+                                            <span className="material-symbols-outlined text-lg">auto_stories</span>
+                                            Continue Reading
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section className="pb-8">
+                            <div className="flex items-center justify-between px-4 pt-6 pb-2">
+                                <h2 className="text-xl font-bold tracking-tight">Global Hatims</h2>
+                                <button className="text-primary text-sm font-semibold" onClick={() => navigate('/invite')}>Discover</button>
+                            </div>
+                            <div className="px-4 flex flex-col gap-3">
+                                <div className="flex items-center justify-between p-4 bg-white dark:bg-white/5 rounded-xl border border-slate-200 dark:border-white/10">
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary"><span className="material-symbols-outlined">public</span></div>
+                                        <div><p className="font-semibold text-sm">Friday Surah Kahf Community</p><p className="text-xs text-slate-500">2,481 participants</p></div>
+                                    </div>
+                                    <button className="px-4 py-1.5 bg-primary text-background-dark text-xs font-bold rounded-full">Join</button>
+                                </div>
+                            </div>
+                        </section>
+                    </main>
+                    <BottomNav />
+                </div>
+            );
+        };
+
+        const SessionDetails = () => {
+            const navigate = useNavigate();
+            return (
+                <div className="bg-background-light dark:bg-background-dark text-white min-h-screen pb-24">
+                    <div className="sticky top-0 z-50 flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between border-b border-white/10">
+                        <div onClick={() => navigate(-1)} className="text-white flex size-10 shrink-0 items-center justify-center cursor-pointer"><span className="material-symbols-outlined">arrow_back_ios</span></div>
+                        <h2 className="text-white text-lg font-bold leading-tight flex-1 text-center">Session Details</h2>
+                        <div className="flex w-10 items-center justify-end"><button className="size-10 text-white"><span className="material-symbols-outlined">more_vert</span></button></div>
+                    </div>
+                    <div className="flex flex-col items-center px-4 py-6">
+                        <h3 className="text-white text-2xl font-bold text-center">Ramadan Hatim 2024</h3>
+                        <p className="text-[#93c8a8] text-sm pb-3 pt-1 text-center">Target Date: Oct 25, 2024</p>
+                    </div>
+                    <div className="px-4 pb-6">
+                        <div className="flex items-center gap-6 rounded-xl p-6 bg-[#244732] border border-white/5">
+                            <div className="relative flex size-24 shrink-0 items-center justify-center rounded-full progress-circle">
+                                <div className="flex size-[80%] items-center justify-center rounded-full bg-[#244732]"><span className="text-white text-xl font-bold">60%</span></div>
+                            </div>
+                            <div>
+                                <p className="text-white/70 text-sm font-medium">Session Progress</p>
+                                <p className="text-white text-2xl font-bold leading-tight">18/30 Juz</p>
+                                <p className="text-primary text-sm">+3 since yesterday</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="px-4 pb-4">
+                        <button onClick={() => navigate('/invite')} className="flex w-full items-center justify-center gap-2 rounded-xl bg-primary h-12 text-background-dark font-bold">
+                            <span className="material-symbols-outlined">share</span>Share Invite Link
+                        </button>
+                    </div>
+                    <div className="px-4">
+                        <div className="flex items-center justify-between pb-4 pt-2">
+                            <h3 className="text-white text-lg font-bold">Juz Distribution</h3>
+                            <span className="text-primary text-xs font-bold bg-primary/10 px-2 py-1 rounded">30 TOTAL</span>
+                        </div>
+                        <div className="grid grid-cols-3 gap-3">
+                            {[1, 5, 8, 12].map(num => (
+                                <div key={num} className="flex flex-col items-center justify-center gap-2 rounded-xl p-4 bg-[#244732] border border-primary/30 relative">
+                                    <span className="absolute top-2 right-2 text-primary"><span className="material-symbols-outlined text-sm">check_circle</span></span>
+                                    <p className="text-white/60 text-[10px] font-bold uppercase">Juz</p>
+                                    <p className="text-white text-2xl font-black">{num.toString().padStart(2, '0')}</p>
+                                </div>
+                            ))}
+                            {[2, 7].map(num => (
+                                <div key={num} className="flex flex-col items-center justify-center gap-2 rounded-xl p-4 bg-[#244732] border border-yellow-500/30 relative">
+                                    <span className="absolute top-2 right-2 text-yellow-500"><span className="material-symbols-outlined text-sm">pending</span></span>
+                                    <p className="text-white/60 text-[10px] font-bold uppercase">Juz</p>
+                                    <p className="text-white text-2xl font-black">{num.toString().padStart(2, '0')}</p>
+                                </div>
+                            ))}
+                            {[3, 4, 6, 9].map(num => (
+                                <div key={num} onClick={() => navigate('/reader')} className="flex flex-col items-center justify-center gap-2 rounded-xl p-4 bg-white/5 border border-white/10 hover:border-primary/50 cursor-pointer group">
+                                    <p className="text-white/40 text-[10px] font-bold uppercase">Juz</p>
+                                    <p className="text-white/50 text-2xl font-black group-hover:text-white">{num.toString().padStart(2, '0')}</p>
+                                    <div className="flex size-6 items-center justify-center rounded-full bg-white/10 group-hover:bg-primary/20"><span className="material-symbols-outlined text-sm text-white/40 group-hover:text-primary">add</span></div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                    <BottomNav />
+                </div>
+            );
+        };
+
+        const Reader = () => {
+            const navigate = useNavigate();
+            const [isAudioPlayer, setAudioPlayer] = useState(false);
+            
+            return (
+                <div className="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-gray-100 min-h-screen flex flex-col">
+                    <header className="sticky top-0 z-50 bg-background-light dark:bg-background-dark border-b border-gray-200 dark:border-gray-800">
+                        <div className="flex items-center p-4 justify-between pt-safe">
+                            <div className="flex items-center gap-2">
+                                <div className="text-primary flex items-center"><span className="material-symbols-outlined text-[20px]">cloud_done</span></div>
+                                <span className="text-xs font-medium text-primary/80 uppercase tracking-wider">Synced</span>
+                            </div>
+                            <div className="flex flex-col items-center">
+                                <h2 className="text-lg font-bold">Surah Al-Baqarah</h2>
+                                <p className="text-[10px] text-gray-500 uppercase tracking-widest">Juz 1 • Verse 1-5</p>
+                            </div>
+                            <button onClick={() => setAudioPlayer(!isAudioPlayer)} className="size-10 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800">
+                                <span className="material-symbols-outlined">settings</span>
+                            </button>
+                        </div>
+                        <div className="w-full bg-gray-200 dark:bg-gray-800 h-1"><div className="bg-primary h-full transition-all duration-300" style={{width: "45%"}}></div></div>
+                    </header>
+
+                    <main className={`flex-1 px-4 py-6 max-w-2xl mx-auto w-full space-y-8 ${isAudioPlayer ? 'pb-80' : 'pb-32'}`}>
+                        {[
+                            {id: 1, ar: "بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ", en: "In the name of Allah, the Entirely Merciful, the Especially Merciful."},
+                            {id: 2, ar: "ذَٰلِكَ الْكِتَابُ لَا رَيْبَ ۛ فِيهِ ۛ هُدًى لِلْمُتَّقِينَ", en: "This is the Book about which there is no doubt, a guidance for those conscious of Allah -"},
+                            {id: 3, ar: "الَّذِينَ يُؤْمِنُونَ بِالْغَيْبِ وَيُقِيمُونَ الصَّلَاةَ وَمِمَّا رَزَقْنَاهُمْ يُنْفِقُونَ", en: "Who believe in the unseen, establish prayer, and spend out of what We have provided for them,"},
+                            {id: 4, ar: "وَالَّذِينَ يُؤْمِنُونَ بِمَا أُنْزِلَ إِلَيْكَ وَمَا أُنْزِلَ مِنْ قَبْلِكَ وَبِالْآخِرَةِ هُمْ يُوقِنُونَ", en: "And who believe in what has been revealed to you, [O Muhammad], and what was revealed before you, and of the Hereafter they are certain [in faith]."},
+                            {id: 5, ar: "أُولَٰئِكَ عَلَىٰ هُدًى مِنْ رَبِّهِمْ ۖ وَأُولَٰئِكَ هُمُ الْمُفْلِحُونَ", en: "Those are upon [right] guidance from their Lord, and it is those who are the successful."}
+                        ].map(v => (
+                            <div key={v.id} className="flex flex-col gap-4 border-b border-gray-100 dark:border-gray-800 pb-6">
+                                <div className="flex justify-between items-start gap-4">
+                                    <div className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary font-bold text-xs">{v.id}</div>
+                                    <p className="arabic-text text-3xl text-right leading-loose">{v.ar}</p>
+                                </div>
+                                <div className="pl-12"><p className="text-gray-500 dark:text-gray-400 text-sm italic leading-relaxed">{v.en}</p></div>
+                            </div>
+                        ))}
+                    </main>
+
+                    {isAudioPlayer && (
+                        <section className="fixed bottom-0 left-0 right-0 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-xl border-t border-gray-200 dark:border-gray-800 pt-4 pb-6 px-4 z-50">
+                            <div className="max-w-2xl mx-auto space-y-6">
+                                <div className="bg-gray-100 dark:bg-gray-800/50 rounded-2xl p-3 flex items-center gap-4">
+                                    <button className="size-10 flex items-center justify-center bg-primary text-background-dark rounded-full"><span className="material-symbols-outlined fill-1">play_arrow</span></button>
+                                    <div className="flex-1 flex flex-col gap-1">
+                                        <div className="flex justify-between text-[10px] text-gray-500"><span>01:24</span><span>03:45</span></div>
+                                        <input className="w-full h-1" max="100" min="0" type="range" defaultValue="35"/>
+                                    </div>
+                                    <button className="text-gray-500"><span className="material-symbols-outlined">speed</span></button>
+                                </div>
+                                <div className="flex justify-between items-center text-xs font-semibold px-2">
+                                    <button className="flex items-center gap-1"><span className="material-symbols-outlined text-sm">chevron_left</span> Previous</button>
+                                    <div className="bg-primary/10 px-3 py-1 rounded-full text-primary">Page 1 of 604</div>
+                                    <button className="flex items-center gap-1">Next <span className="material-symbols-outlined text-sm">chevron_right</span></button>
+                                </div>
+                                <button onClick={() => navigate('/')} className="w-full bg-primary text-background-dark font-bold h-14 rounded-xl flex items-center justify-center gap-2 shadow-lg">
+                                    <span className="material-symbols-outlined font-bold">check_circle</span>Mark as Read
+                                </button>
+                            </div>
+                        </section>
+                    )}
+
+                    {!isAudioPlayer && (
+                        <footer className="fixed bottom-0 left-0 right-0 p-4 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+                            <button onClick={() => navigate('/')} className="w-full bg-primary text-background-dark font-bold h-14 rounded-xl flex items-center justify-center gap-2 shadow-lg">
+                                <span className="material-symbols-outlined">check_circle</span>Mark as Read
+                            </button>
+                        </footer>
+                    )}
+                </div>
+            );
+        };
+
+        const Profile = () => {
+            const navigate = useNavigate();
+            return (
+                <div className="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen pb-24">
+                    <header className="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 ios-blur border-b border-slate-200 dark:border-white/10 p-4 flex items-center justify-between">
+                        <h2 className="text-lg font-bold">Profile</h2>
+                        <button onClick={() => navigate('/login')} className="size-10 flex items-center justify-center rounded-full hover:bg-slate-200 dark:hover:bg-white/10"><span className="material-symbols-outlined">logout</span></button>
+                    </header>
+                    <main className="max-w-md mx-auto">
+                        <section className="flex flex-col items-center pt-8 pb-6 px-4">
+                            <div className="relative">
+                                <div className="bg-center bg-cover rounded-full h-32 w-32 border-4 border-primary/20 p-1" style={{backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuABul6lifkXiOg__2QHBJEeoCunicBWkO8t5mxDgZqXjieFu-DHUDdxfcN9iXE5hFIylA3DaCaaLgMN3g_l0Y3ghqGYzU6FICajYavQqIdJrxgWKmegf2Z2BezD4KpRyv29uy6CNK5Sf1W4KjOvUg9X_W6gC7LdG8o8k8SPHw5VZ8Z7lojtdVs9bOEd3EYIj019hmQG6O8QJVvA4QDO_7j1FbkA4Y8na42U-drnEAiXmsRU0P4z4ATsTsmOhZ3kdBwEvR41y4z7G5I')"}}></div>
+                                <div className="absolute bottom-1 right-1 bg-primary text-background-dark rounded-full p-1.5 border-4 border-background-dark"><span className="material-symbols-outlined text-[18px] font-bold">verified</span></div>
+                            </div>
+                            <h1 className="text-2xl font-bold mt-4">Ahmed Al-Farsi</h1>
+                            <p className="text-primary/70 text-sm font-medium mt-1">Dedicated student of the Quran</p>
+                            <button className="mt-4 px-6 py-2 bg-slate-200 dark:bg-white/10 rounded-full text-sm font-semibold">Edit Profile</button>
+                        </section>
+                        <section className="px-4 py-2 grid grid-cols-3 gap-3">
+                            {[ {v:"24", l:"Hatims"}, {v:"152", l:"Followers"}, {v:"89", l:"Following"} ].map((s,i)=>(
+                                <div key={i} className="flex flex-col gap-1 rounded-2xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 p-4 items-center">
+                                    <p className="text-primary text-2xl font-bold">{s.v}</p>
+                                    <p className="text-slate-500 text-[11px] uppercase tracking-wider font-bold">{s.l}</p>
+                                </div>
+                            ))}
+                        </section>
+                        <nav className="mt-6 border-b border-slate-200 dark:border-white/10 flex px-4">
+                            <button className="flex-1 pb-3 pt-2 font-semibold text-sm border-b-2 border-primary text-primary">My History</button>
+                            <button className="flex-1 pb-3 pt-2 font-semibold text-sm text-slate-500">Dua List</button>
+                        </nav>
+                        <section className="px-4 pt-4 space-y-3">
+                            <div className="flex items-center justify-between p-4 bg-white dark:bg-white/5 rounded-2xl border border-slate-200 dark:border-white/5">
+                                <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary"><span className="material-symbols-outlined text-3xl">auto_stories</span></div>
+                                <div className="flex-1 ml-4"><h4 className="font-bold">Ramadan Group Hatim</h4><p className="text-sm text-slate-500">Juz 15-16 • Completed</p></div>
+                                <div className="text-right"><p className="text-xs text-slate-400">Mar 24</p><span className="material-symbols-outlined text-primary text-xl">check_circle</span></div>
+                            </div>
+                        </section>
+                    </main>
+                    <BottomNav />
+                </div>
+            );
+        };
+
+        const Login = () => {
+            const navigate = useNavigate();
+            return (
+                <div className="bg-background-dark min-h-screen text-white flex flex-col">
+                    <header className="relative h-[35vh] flex flex-col items-center justify-center overflow-hidden">
+                        <div className="absolute inset-0 islamic-pattern"></div>
+                        <div className="relative z-10 flex flex-col items-center">
+                            <div className="h-24 w-24 bg-gradient-to-br from-emerald-custom to-primary rounded-[2.5rem] flex items-center justify-center shadow-2xl rotate-12 mb-6">
+                                <span className="material-symbols-outlined text-background-dark text-6xl font-bold -rotate-12">auto_stories</span>
+                            </div>
+                            <h1 className="text-3xl font-bold">HatimConnect</h1>
+                        </div>
+                    </header>
+                    <main className="flex-1 px-8 max-w-md mx-auto w-full -mt-10 relative z-20">
+                        <div className="bg-card-bg/60 backdrop-blur-xl border border-white/5 rounded-3xl p-6 shadow-2xl">
+                            <h2 className="text-2xl font-bold">Welcome back</h2>
+                            <form className="mt-8 space-y-5" onSubmit={(e)=>{e.preventDefault(); navigate('/');}}>
+                                <div>
+                                    <label className="block text-[10px] font-bold uppercase text-emerald-custom/80 mb-2 ml-1">Email Address</label>
+                                    <input className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-2xl text-white outline-none" placeholder="name@example.com" type="email"/>
+                                </div>
+                                <div>
+                                    <label className="block text-[10px] font-bold uppercase text-emerald-custom/80 mb-2 ml-1">Password</label>
+                                    <input className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-2xl text-white outline-none" placeholder="••••••••" type="password"/>
+                                </div>
+                                <div className="flex justify-end"><Link to="/reset-password" name="reset-password" className="text-sm text-emerald-custom">Forgot Password?</Link></div>
+                                <button className="w-full bg-emerald-custom text-background-dark py-4 rounded-2xl font-bold text-lg mt-4">Login</button>
+                            </form>
+                            <div className="mt-8 text-center"><p className="text-white/40 text-sm">Don't have an account? <Link to="/signup" className="text-emerald-custom font-bold">Sign Up</Link></p></div>
+                        </div>
+                    </main>
+                </div>
+            );
+        };
+
+        const SignUp = () => {
+            const navigate = useNavigate();
+            return (
+                <div className="bg-background-dark min-h-screen text-white p-6">
+                    <header className="mb-8"><button onClick={()=>navigate(-1)} className="h-10 w-10 flex items-center justify-center rounded-full bg-white/5"><span className="material-symbols-outlined">arrow_back_ios_new</span></button></header>
+                    <main className="max-w-md mx-auto">
+                        <div className="text-center mb-10">
+                            <div className="h-16 w-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6"><span className="material-symbols-outlined text-4xl text-primary font-bold">auto_stories</span></div>
+                            <h1 className="text-3xl font-bold">Create Account</h1>
+                        </div>
+                        <form className="space-y-5" onSubmit={(e)=>{e.preventDefault(); navigate('/');}}>
+                            <div className="relative"><span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-white/30">person</span><input className="w-full pl-12 pr-4 py-4 rounded-2xl bg-white/5 border-none" placeholder="Full Name" type="text"/></div>
+                            <div className="relative"><span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-white/30">mail</span><input className="w-full pl-12 pr-4 py-4 rounded-2xl bg-white/5 border-none" placeholder="Email" type="email"/></div>
+                            <div className="relative"><span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-white/30">lock</span><input className="w-full pl-12 pr-4 py-4 rounded-2xl bg-white/5 border-none" placeholder="Password" type="password"/></div>
+                            <button className="w-full py-4 bg-primary text-background-dark font-bold text-lg rounded-2xl mt-4">Create Account</button>
+                        </form>
+                    </main>
+                </div>
+            );
+        };
+
+        const ResetPassword = () => {
+            const navigate = useNavigate();
+            return (
+                <div className="bg-background-dark min-h-screen text-white p-8">
+                    <div className="max-w-md mx-auto text-center py-20">
+                        <div className="h-20 w-20 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-2xl"><span className="material-symbols-outlined text-primary text-5xl font-bold">key</span></div>
+                        <h1 className="text-3xl font-bold mb-4">Reset Password</h1>
+                        <p className="text-white/50 mb-8">Enter your email address to receive a recovery link.</p>
+                        <form className="space-y-6" onSubmit={(e)=>{e.preventDefault(); navigate('/reset-success');}}>
+                            <input className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-2xl text-white outline-none" placeholder="Email Address" type="email" required/>
+                            <button className="w-full bg-emerald-custom text-background-dark py-4 rounded-2xl font-bold text-lg">Send Reset Link</button>
+                        </form>
+                        <Link to="/login" className="inline-flex items-center gap-2 mt-10 text-emerald-custom font-bold"><span className="material-symbols-outlined">arrow_back</span>Back to Login</Link>
+                    </div>
+                </div>
+            );
+        };
+
+        const ResetSuccess = () => {
+            const navigate = useNavigate();
+            return (
+                <div className="bg-background-dark min-h-screen text-white flex flex-col items-center justify-center p-6">
+                    <div className="relative mb-8">
+                        <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full"></div>
+                        <div className="relative flex items-center justify-center size-32 rounded-full border-4 border-primary/30 bg-primary/10">
+                            <span className="material-symbols-outlined text-primary text-[64px]">check_circle</span>
+                        </div>
+                    </div>
+                    <h1 className="text-3xl font-bold mb-3">Email Sent!</h1>
+                    <p className="text-slate-300 text-center mb-10 max-w-[280px]">We've sent a recovery link to your inbox. Please check your email.</p>
+                    <button onClick={() => navigate('/login')} className="w-full max-w-md bg-primary text-background-dark font-bold py-4 rounded-xl">Return to Login</button>
+                </div>
+            );
+        };
+
+        const GroupChat = () => {
+            const navigate = useNavigate();
+            return (
+                <div className="bg-background-dark min-h-screen text-white flex flex-col">
+                    <nav className="shrink-0 z-50 bg-background-dark/80 ios-blur border-b border-white/5 p-4 flex items-center gap-3">
+                        <button onClick={()=>navigate(-1)} className="text-emerald-custom"><span className="material-symbols-outlined">arrow_back_ios</span></button>
+                        <div className="flex-1"><h1 className="text-base font-bold">Ramadan 2024 Hatim</h1><p className="text-[10px] text-emerald-custom uppercase tracking-wider">12 Active Participants</p></div>
+                        <button className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center"><span className="material-symbols-outlined text-emerald-custom">info</span></button>
+                    </nav>
+                    <main className="flex-1 overflow-y-auto chat-container p-4 space-y-6 relative">
+                        <div className="absolute inset-0 islamic-pattern pointer-events-none"></div>
+                        <div className="flex justify-center"><span className="text-[10px] uppercase text-white/30 bg-white/5 px-3 py-1 rounded-full">Today</span></div>
+                        <div className="flex items-end gap-2 max-w-[85%]">
+                            <div className="w-8 h-8 rounded-full bg-emerald-custom/20 border border-emerald-custom/30 flex items-center justify-center shrink-0"><span className="text-[10px] font-bold text-emerald-custom">AM</span></div>
+                            <div onClick={()=>navigate('/dm')}>
+                                <p className="text-[10px] text-emerald-custom/80 ml-2 mb-1">Ahmed Mansour</p>
+                                <div className="bg-[#1a2e23] border border-white/5 px-4 py-3 rounded-2xl rounded-bl-none shadow-sm"><p className="text-sm">Assalamu Alaikum everyone! Just finished Juz 15. 📖</p></div>
+                            </div>
+                        </div>
+                        <div className="flex flex-col items-end gap-1">
+                            <div className="max-w-[85%]"><div className="bg-emerald-custom text-background-dark px-4 py-3 rounded-2xl rounded-br-none font-medium"><p className="text-sm">MashaAllah! I am starting Juz 16 now. InshaAllah will finish by Isha.</p></div></div>
+                            <div className="flex items-center gap-1 mr-1"><p className="text-[9px] text-white/20">10:20 AM</p><span className="material-symbols-outlined text-[12px] text-emerald-custom">done_all</span></div>
+                        </div>
+                    </main>
+                    <footer className="shrink-0 bg-background-dark/95 border-t border-white/10 p-4 pb-12">
+                        <div className="flex items-end gap-3 max-w-lg mx-auto">
+                            <div className="flex gap-2 pb-1"><button className="text-white/40"><span className="material-symbols-outlined">auto_stories</span></button></div>
+                            <div className="flex-1"><textarea className="w-full bg-white/5 border border-white/10 rounded-2xl px-4 py-3 text-sm resize-none h-12" placeholder="Type your message..."></textarea></div>
+                            <button className="w-12 h-12 rounded-full bg-emerald-custom text-background-dark flex items-center justify-center"><span className="material-symbols-outlined">send</span></button>
+                        </div>
+                    </footer>
+                </div>
+            );
+        };
+
+        const DMChat = () => {
+            const navigate = useNavigate();
+            return (
+                <div className="bg-background-dark min-h-screen text-white flex flex-col">
+                    <header className="sticky top-0 z-20 bg-background-dark/95 backdrop-blur-md border-b border-slate-800 p-4 pt-12 pb-3 flex items-center gap-3">
+                        <button onClick={()=>navigate(-1)} className="text-white"><span className="material-symbols-outlined">arrow_back_ios</span></button>
+                        <div className="relative">
+                            <div className="size-10 rounded-full bg-cover bg-center border border-primary/20" style={{backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuBTS1YZ4WzqyA6uLi6n-8Hx3fpVuawyeCqZDdednlJOCQ3eZeLEuvy5ibDKJV-frcTWltN3FNtNqgUsrvGNN1bRoZ_nhtgk_vL1oo11xYG-ZNqhlr_OP_PxQCajUXiMTyO_40Lre9N0emrxbEEkAA5wpbMsmgwne38J079Cjmz3-jGH5P-MjV_PLGIj75e8uBl6gwlOgzJ16gldTPtZFbzEQ50slRRJqEDcf9oDF0WLBJq1gs27PCTvMc73fLTz6QO80hDLy_i-COU')"}}></div>
+                            <div className="absolute bottom-0 right-0 size-3 bg-primary rounded-full border-2 border-background-dark"></div>
+                        </div>
+                        <div className="flex-1"><h2 className="text-base font-bold">Hassan Ali</h2><p className="text-primary text-xs">Online</p></div>
+                    </header>
+                    <main className="flex-1 overflow-y-auto p-4 space-y-4">
+                        <div className="flex justify-center"><span className="bg-charcoal-light/50 text-[#9db8a8] text-[11px] font-bold px-3 py-1 rounded-full uppercase">Tuesday, Oct 24</span></div>
+                        <div className="flex items-end gap-2">
+                            <div className="bg-charcoal-light text-white text-[15px] px-4 py-2.5 rounded-2xl rounded-bl-none">Assalamu Alaikum! Have you finished Juz 15?</div>
+                        </div>
+                        <div className="flex flex-col items-end gap-1">
+                            <div className="bg-primary text-charcoal-dark text-[15px] font-medium px-4 py-2.5 rounded-2xl rounded-br-none">Walaikum Assalam. Almost done!</div>
+                        </div>
+                        <div className="flex flex-col items-end gap-1">
+                            <div className="bg-primary/10 border border-primary/30 rounded-2xl p-4 max-w-[85%] flex flex-col gap-3">
+                                <div className="flex items-center gap-2 border-b border-primary/20 pb-2"><span className="material-symbols-outlined text-primary">menu_book</span><span className="text-xs font-bold text-primary">AL-BAQARAH 2:153</span></div>
+                                <p className="arabic-text text-lg text-right" dir="rtl">يَـٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ ٱسْتَعِينُوا۟ بِٱلصَّبْرِ وَٱلصَّلَوٰةِ ۚ إِنَّ ٱللَّهَ مَعَ ٱلصَّـٰبِرِينَ</p>
+                                <p className="text-slate-300 text-xs italic">"O you who have believed, seek help through patience and prayer..."</p>
+                                <button onClick={()=>navigate('/reader')} className="w-full py-2 bg-primary/20 text-primary text-[10px] font-bold uppercase rounded-lg">Read in Context</button>
+                            </div>
+                        </div>
+                    </main>
+                    <footer className="bg-background-dark border-t border-slate-800 p-3 pb-8">
+                        <div className="flex items-center gap-2">
+                            <button className="size-9 rounded-full bg-charcoal-light flex items-center justify-center"><span className="material-symbols-outlined">add</span></button>
+                            <input className="flex-1 bg-charcoal-light rounded-2xl px-4 py-2 text-sm border-none" placeholder="Write your message..."/>
+                            <button className="size-10 rounded-full bg-primary text-charcoal-dark flex items-center justify-center shadow-lg"><span className="material-symbols-outlined font-bold">send</span></button>
+                        </div>
+                    </footer>
+                </div>
+            );
+        };
+
+        const Invite = () => {
+            const navigate = useNavigate();
+            return (
+                <div className="bg-background-dark min-h-screen text-white flex flex-col">
+                    <header className="relative pt-12 pb-8 px-6 overflow-hidden">
+                        <div className="absolute inset-0 islamic-pattern"></div>
+                        <nav className="relative z-10 flex items-center justify-between mb-8">
+                            <button onClick={()=>navigate(-1)} className="w-10 h-10 flex items-center justify-center bg-white/5 rounded-full"><span className="material-symbols-outlined">arrow_back_ios_new</span></button>
+                            <h1 className="text-xl font-semibold">Invite Friends</h1>
+                            <div className="w-10"></div>
+                        </nav>
+                        <div className="relative z-10 bg-card-bg/60 border border-white/10 rounded-3xl p-5 ios-blur shadow-xl flex items-center gap-4">
+                            <div className="h-14 w-14 bg-gradient-to-br from-emerald-custom to-primary rounded-2xl flex items-center justify-center shadow-lg"><span className="material-symbols-outlined text-background-dark text-3xl font-bold">auto_stories</span></div>
+                            <div><h2 className="text-lg font-bold">Ramadan Kareem Hatim</h2><p className="text-emerald-custom text-sm font-medium">12 Juz remaining</p></div>
+                        </div>
+                    </header>
+                    <main className="flex-1 px-6 pb-24 space-y-8">
+                        <section>
+                            <label className="block text-[10px] font-bold uppercase tracking-[0.2em] text-emerald-custom/80 mb-3 ml-1">Unique Invite Link</label>
+                            <div className="flex items-center gap-2 p-1.5 bg-white/5 border border-white/10 rounded-2xl">
+                                <input className="flex-1 bg-transparent border-none focus:ring-0 text-sm px-3 text-white/70" readOnly value="hatimconnect.app/join/ramadan24-x92k"/>
+                                <button className="bg-emerald-custom text-background-dark px-4 py-2.5 rounded-xl font-bold text-sm">Copy</button>
+                            </div>
+                        </section>
+                        <section>
+                            <label className="block text-[10px] font-bold uppercase text-emerald-custom/80 mb-4 ml-1">Suggested Friends</label>
+                            <div className="space-y-3">
+                                {[
+                                    {n: "Omar Farooq", d: "Top Reader • Level 12", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDq_WTsVg8CqVYxv4mMlRKw1aYZPkv9i7vQDL1yF4MKWU__vFq4JvF_cTJda0T2trihJozd-NT-U91YXol_zgcvKMbKIgjESnBVGLQPXloa9pAp4rlcRHVpWmWA_7nwXLvnZkhbPQmW2DxFrzhSQPHVl12YB0a9Af4oGZbqY3nwi_rZtNAui5ckBk5-fWIaHDT67IkjUYk5n0hptLW9sGYl4pOwK8HgzQiXguCt-dMChNG4bbNAClC3NOsl8EGmEswl5Fn0JEZv3L0"},
+                                    {n: "Aisha Siddiqui", d: "Last seen 2h ago", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBRQcMp6P47edCEXede1RfsyaLqBrbSAuRydxIh7hlN6UL9wGMRQQvkvNjgw7Xzci6zhGni3n26jo9584M3I5ozcKe9L6xbfU8u93-Gq9yfrAfw7ietn4bWITqEdLgtlC9kQhbXFvvnfe3zTMcG3ttvD3mSt__5f0gMf2SZryGuytrSvdUJ90Q_ByEpEPlFXb5ki73YMrH35DdglTIzUlFlavr62Gv3Lv5jsF5yuy_dApCTHbN-g0Eq8qimDI-_iyuvRB_WepVsHKk"}
+                                ].map((f, i)=>(
+                                    <div key={i} className="flex items-center justify-between p-4 bg-white/5 border border-white/5 rounded-2xl">
+                                        <div className="flex items-center gap-3">
+                                            <img className="w-12 h-12 rounded-full border border-primary/20 p-1" src={f.img} alt={f.n}/>
+                                            <div><h3 className="font-bold text-sm">{f.n}</h3><p className="text-[10px] text-white/40 uppercase">{f.d}</p></div>
+                                        </div>
+                                        <button className="px-4 py-2 bg-white/10 rounded-xl text-xs font-bold">Invite</button>
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
+                    </main>
+                    <BottomNav />
+                </div>
+            );
+        };
+
+        // --- App Setup ---
+
+        function App() {
+            return (
+                <MemoryRouter>
+                    <Routes>
+                        <Route path="/" element={<Dashboard />} />
+                        <Route path="/session-details" element={<SessionDetails />} />
+                        <Route path="/reader" element={<Reader />} />
+                        <Route path="/profile" element={<Profile />} />
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/signup" element={<SignUp />} />
+                        <Route path="/reset-password" element={<ResetPassword />} />
+                        <Route path="/reset-success" element={<ResetSuccess />} />
+                        <Route path="/group-chat" element={<GroupChat />} />
+                        <Route path="/dm" element={<DMChat />} />
+                        <Route path="/invite" element={<Invite />} />
+                    </Routes>
+                </MemoryRouter>
+            );
+        }
+
+        const root = createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>

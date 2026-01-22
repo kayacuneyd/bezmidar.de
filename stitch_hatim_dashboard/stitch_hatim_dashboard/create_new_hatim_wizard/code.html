@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Create New Hatim Wizard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#19e66b",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#112117",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Lexend', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen flex flex-col">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-white/10">
+<div class="flex items-center justify-between px-4 py-3">
+<button class="flex items-center justify-center p-2 rounded-full hover:bg-slate-200 dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</button>
+<h1 class="text-lg font-bold tracking-tight">Create New Hatim</h1>
+<div class="w-10"></div> <!-- Spacer for balance -->
+</div>
+<!-- Page Progress Indicator -->
+<div class="flex w-full flex-row items-center justify-center gap-3 py-3">
+<div class="h-2 w-12 rounded-full bg-primary"></div>
+<div class="h-2 w-12 rounded-full bg-slate-300 dark:bg-white/10"></div>
+</div>
+</header>
+<main class="flex-1 overflow-y-auto pb-32">
+<!-- Step Title -->
+<div class="px-4 py-6">
+<h2 class="text-3xl font-bold leading-tight tracking-tight">Step 1: Hatim Details</h2>
+<p class="text-slate-500 dark:text-white/60 mt-1">Set up the basic information for your collective Quran reading.</p>
+</div>
+<!-- Form Fields -->
+<div class="space-y-6">
+<!-- Hatim Title Input -->
+<div class="px-4">
+<label class="flex flex-col gap-2">
+<span class="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-white/50 px-1">Hatim Title</span>
+<input class="w-full h-14 px-4 rounded-xl border-2 border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 focus:border-primary focus:ring-0 transition-all text-lg placeholder:text-slate-400 dark:placeholder:text-white/20" placeholder="e.g., For Family Blessing" type="text"/>
+</label>
+</div>
+<!-- Date Selection Section -->
+<div class="px-4">
+<h3 class="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-white/50 px-1 mb-3">Target Completion Date</h3>
+<div class="bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-2xl p-4">
+<div class="flex items-center justify-between mb-4">
+<span class="font-medium">October 2024</span>
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-primary cursor-pointer">chevron_left</span>
+<span class="material-symbols-outlined text-primary cursor-pointer">chevron_right</span>
+</div>
+</div>
+<div class="grid grid-cols-7 gap-1 text-center text-xs font-medium mb-2 opacity-50">
+<span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span>
+</div>
+<div class="grid grid-cols-7 gap-1 text-center">
+<!-- Simplified Calendar Grid Mockup -->
+<div class="p-2 text-slate-300 dark:text-white/20">29</div>
+<div class="p-2 text-slate-300 dark:text-white/20">30</div>
+<div class="p-2">1</div>
+<div class="p-2">2</div>
+<div class="p-2">3</div>
+<div class="p-2">4</div>
+<div class="p-2">5</div>
+<div class="p-2">6</div>
+<div class="p-2">7</div>
+<div class="p-2">8</div>
+<div class="p-2">9</div>
+<div class="p-2">10</div>
+<div class="p-2">11</div>
+<div class="p-2">12</div>
+<div class="p-2">13</div>
+<div class="p-2">14</div>
+<div class="p-2">15</div>
+<div class="p-2 bg-primary/20 text-primary font-bold rounded-lg border border-primary">16</div>
+<div class="p-2">17</div>
+<div class="p-2">18</div>
+<div class="p-2">19</div>
+<div class="p-2">20</div>
+<div class="p-2">21</div>
+<div class="p-2">22</div>
+<div class="p-2">23</div>
+<div class="p-2">24</div>
+<div class="p-2">25</div>
+<div class="p-2">26</div>
+</div>
+</div>
+</div>
+<!-- Visibility Selection -->
+<div class="px-4">
+<h3 class="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-white/50 px-1 mb-3">Visibility</h3>
+<div class="flex p-1 bg-slate-200 dark:bg-white/10 rounded-xl">
+<button class="flex-1 py-3 px-4 rounded-lg bg-white dark:bg-background-dark shadow-sm flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">lock</span>
+<span class="font-medium">Private</span>
+</button>
+<button class="flex-1 py-3 px-4 rounded-lg flex items-center justify-center gap-2 opacity-60">
+<span class="material-symbols-outlined text-xl">public</span>
+<span class="font-medium">Public</span>
+</button>
+</div>
+<p class="text-xs text-slate-500 dark:text-white/40 mt-3 px-1">
+                    Private Hatims are only visible to people you invite directly via link.
+                </p>
+</div>
+</div>
+</main>
+<!-- Floating Action Button Area -->
+<div class="fixed bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-background-light dark:from-background-dark via-background-light/95 dark:via-background-dark/95 to-transparent">
+<div class="max-w-md mx-auto">
+<button class="w-full bg-primary text-background-dark font-bold text-lg py-4 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-primary/20 active:scale-95 transition-transform">
+                Next Step
+                <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Step 2 Preview (Hidden or for transition reference) -->
+<!-- This part illustrates the Juz Selection UI mentioned in the prompt -->
+<div class="hidden">
+<h3 class="px-4 pt-8 text-xl font-bold">Choose your starting Juz</h3>
+<div class="grid grid-cols-3 gap-4 p-4">
+<div class="aspect-square flex flex-col items-center justify-center border-2 border-primary bg-primary/10 rounded-2xl">
+<span class="text-2xl font-bold text-primary">1</span>
+<span class="text-[10px] uppercase font-bold text-primary/80">Al-Fatiha</span>
+</div>
+<!-- ... and so on for 30 Juz -->
+</div>
+</div>
+</body></html>

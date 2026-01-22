@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Direct Message Chat - HatimConnect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#10b981", // Emerald Green 500
+            "primary-dark": "#059669", // Emerald Green 600
+            "background-light": "#ffffff",
+            "bubble-received": "#f3f4f6", // Light Gray (Gray 100)
+            "bubble-sent": "#10b981", // Emerald Green 500
+          },
+          fontFamily: {
+            "display": ["Lexend", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style type="text/tailwindcss">
+    body {
+      font-family: 'Lexend', sans-serif;
+    }
+    .safe-area-bottom {
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #e5e7eb;
+      border-radius: 10px;
+    }
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-white text-slate-900 antialiased">
+<div class="flex flex-col h-screen max-w-md mx-auto bg-white relative overflow-hidden">
+<header class="sticky top-0 z-20 bg-white/95 backdrop-blur-md border-b border-slate-100">
+<div class="flex items-center p-4 pt-12 pb-3 gap-3">
+<button class="text-slate-900 p-1">
+<span class="material-symbols-outlined text-2xl font-semibold">arrow_back_ios</span>
+</button>
+<div class="relative">
+<div class="size-10 rounded-full bg-cover bg-center border border-slate-100" data-alt="Portrait of a smiling man named Hassan Ali" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBTS1YZ4WzqyA6uLi6n-8Hx3fpVuawyeCqZDdednlJOCQ3eZeLEuvy5ibDKJV-frcTWltN3FNtNqgUsrvGNN1bRoZ_nhtgk_vL1oo11xYG-ZNqhlr_OP_PxQCajUXiMTyO_40Lre9N0emrxbEEkAA5wpbMsmgwne38J079Cjmz3-jGH5P-MjV_PLGIj75e8uBl6gwlOgzJ16gldTPtZFbzEQ50slRRJqEDcf9oDF0WLBJq1gs27PCTvMc73fLTz6QO80hDLy_i-COU");'>
+</div>
+<div class="absolute bottom-0 right-0 size-3 bg-primary rounded-full border-2 border-white"></div>
+</div>
+<div class="flex flex-col flex-1">
+<h2 class="text-slate-900 text-base font-bold leading-tight tracking-tight">Hassan Ali</h2>
+<p class="text-primary text-xs font-semibold">Online</p>
+</div>
+<div class="flex gap-2">
+<button class="text-slate-600 p-2">
+<span class="material-symbols-outlined">videocam</span>
+</button>
+<button class="text-slate-600 p-2">
+<span class="material-symbols-outlined">call</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-1 overflow-y-auto p-4 space-y-4 custom-scrollbar bg-white">
+<div class="flex justify-center my-4">
+<span class="bg-slate-100 text-slate-500 text-[11px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">
+          Tuesday, Oct 24
+        </span>
+</div>
+<div class="flex items-end gap-2 group">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full w-8 shrink-0 mb-1" data-alt="Small profile thumbnail of Hassan Ali" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCAPZzO_Cb_hKBs4sXEwuOe3GH5WxoGhPzG-F-5kpXO3CYVpqRzr_I_cB7cRvJFR9qHN6v33B6KYzuVULl0QcNvx8HfKRcYJ8mUSLkFSPgatUIbWSq-0dYlXufqfmD6TNxqDGhI8J8HcWsIAwK8z4YBQ4nOVAwcQlP2hOvgLqCpqU3dyhI3cK7b_nyAOJfJnrs5u5jFbujnMir1NuZRhhHNIOf8kmuZkEcS8HnCyzUTxBlLV--4GIK6zSJwdKwlR6bNiiJPlXRqn6s");'></div>
+<div class="flex flex-col gap-1 max-w-[80%]">
+<div class="bg-bubble-received text-slate-900 text-[15px] px-4 py-2.5 rounded-2xl rounded-bl-none shadow-sm">
+            Assalamu Alaikum! Have you finished Juz 15?
+          </div>
+<p class="text-slate-400 text-[10px] font-medium ml-1">09:41 AM</p>
+</div>
+</div>
+<div class="flex items-end gap-2 justify-end">
+<div class="flex flex-col gap-1 items-end max-w-[80%]">
+<div class="bg-bubble-sent text-white text-[15px] font-medium px-4 py-2.5 rounded-2xl rounded-br-none shadow-sm">
+            Walaikum Assalam. Almost done, just a few pages left.
+          </div>
+<div class="flex items-center gap-1 mr-1">
+<p class="text-slate-400 text-[10px] font-medium">09:43 AM</p>
+<span class="material-symbols-outlined text-primary text-sm font-bold">done_all</span>
+</div>
+</div>
+</div>
+<div class="flex items-end gap-2 justify-end">
+<div class="flex flex-col gap-1 items-end max-w-[85%]">
+<div class="bg-emerald-50 border border-emerald-100 rounded-2xl p-4 flex flex-col gap-3">
+<div class="flex items-center gap-2 border-b border-emerald-200/50 pb-2">
+<span class="material-symbols-outlined text-primary text-xl">menu_book</span>
+<span class="text-xs font-bold text-primary-dark tracking-wide">AL-BAQARAH 2:153</span>
+</div>
+<p class="text-slate-900 text-sm italic leading-relaxed text-right font-display" dir="rtl">
+              يَـٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ ٱسْتَعِينُوا۟ بِٱلصَّبْرِ وَٱلصَّلَوٰةِ ۚ إِنَّ ٱللَّهَ مَعَ ٱلصَّـٰبِرِينَ
+            </p>
+<p class="text-slate-700 text-[13px] leading-snug">
+              "O you who have believed, seek help through patience and prayer. Indeed, Allah is with the patient."
+            </p>
+<button class="w-full py-2 bg-primary text-white text-xs font-bold rounded-lg transition-colors uppercase tracking-tight shadow-sm active:bg-primary-dark">
+              Read in Context
+            </button>
+</div>
+<p class="text-slate-400 text-[10px] font-medium mr-1">09:45 AM</p>
+</div>
+</div>
+<div class="flex items-end gap-2">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full w-8 shrink-0 mb-1" data-alt="Small profile thumbnail of Hassan Ali" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAF0OAL0fvMXSFsuEs7J3HlvROeuJMV9sjRSq4P9gnrOw0Kn8rnBBJzh0qN7Ci18lxwmSYRkb-fk9Vqvil2C5YlTCdKXylGkAtw-Yb4y7wyHhXgbIhMn1s1wLKszFaBzsJPPfUGT9mft8SqiPi9Hur3cBZhJNl1xzftNsYTEZcs6e3jVZ-RV4FedRwnXN135d-8iHRGsVUobzDLiD1AFKuKOL_i2hDiEAEzR0gpet343SjymZzXxQ7U2OF2xjzylb8BBTjCfRrqXUE");'></div>
+<div class="flex flex-col gap-1 max-w-[80%]">
+<div class="bg-bubble-received text-slate-900 text-[15px] px-4 py-2.5 rounded-2xl rounded-bl-none shadow-sm">
+            MashaAllah, beautiful verse. I will catch up with you tonight for the group khatam.
+          </div>
+<p class="text-slate-400 text-[10px] font-medium ml-1">10:02 AM</p>
+</div>
+</div>
+<div class="h-10"></div>
+</main>
+<footer class="bg-white border-t border-slate-100 p-3 pb-8">
+<div class="flex items-center gap-2">
+<button class="flex items-center justify-center size-9 rounded-full bg-slate-100 text-slate-600 shrink-0">
+<span class="material-symbols-outlined">add</span>
+</button>
+<div class="flex-1 flex items-center bg-slate-50 rounded-2xl px-3 py-1.5 border border-slate-200 focus-within:border-primary/50 focus-within:bg-white transition-all">
+<input class="flex-1 bg-transparent border-none focus:ring-0 text-sm text-slate-900 placeholder-slate-400 py-1" placeholder="Write your message..." type="text"/>
+<div class="flex items-center gap-1 ml-1">
+<button class="p-1.5 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">menu_book</span>
+</button>
+<button class="p-1.5 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">image</span>
+</button>
+</div>
+</div>
+<button class="flex items-center justify-center size-10 rounded-full bg-primary text-white shrink-0 shadow-lg shadow-emerald-200 hover:bg-primary-dark active:scale-95 transition-all">
+<span class="material-symbols-outlined font-bold">send</span>
+</button>
+</div>
+</footer>
+</div>
+
+</body></html>

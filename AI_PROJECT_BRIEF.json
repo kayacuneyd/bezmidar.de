@@ -1,0 +1,24 @@
+{
+    "project_name": "Collective Quran Hatim PWA",
+    "core_goal": "Enable collective Quran reading (hatim) with modern mobile-first PWA experience.",
+    "target_users": [
+        "individual Quran readers",
+        "families",
+        "religious communities",
+        "collective hatim organizers"
+    ],
+    "core_values": [
+        "religious authenticity",
+        "simplicity",
+        "trust",
+        "offline accessibility",
+        "shared hosting compatibility"
+    ],
+    "non_goals": [
+        "social media platform",
+        "real-time chat app",
+        "entertainment app"
+    ],
+    "design_priority": "mobile_first",
+    "experience_goal": "feels_like_native_mobile_app"
+}

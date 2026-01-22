@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HatimConnect - Quran Reader</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#19e66b",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#112117",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
+        .arabic-text {
+            font-family: 'Amiri', serif;
+            line-height: 2.2;
+            direction: rtl;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-gray-100 min-h-screen flex flex-col">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-50 bg-background-light dark:bg-background-dark border-b border-gray-200 dark:border-gray-800">
+<div class="flex items-center p-4 justify-between pt-safe">
+<div class="flex items-center gap-2">
+<div class="text-primary flex items-center" title="Offline Status">
+<span class="material-symbols-outlined text-[20px]">cloud_done</span>
+</div>
+<span class="text-xs font-medium text-primary/80 uppercase tracking-wider">Synced</span>
+</div>
+<div class="flex flex-col items-center">
+<h2 class="text-lg font-bold leading-tight tracking-tight">Surah Al-Baqarah</h2>
+<p class="text-[10px] text-gray-500 uppercase tracking-widest">Juz 1 • Verse 1-5</p>
+</div>
+<div class="flex items-center gap-1">
+<button class="flex size-10 items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+</div>
+<!-- Progress Bar -->
+<div class="w-full bg-gray-200 dark:bg-gray-800 h-1">
+<div class="bg-primary h-full transition-all duration-300" style="width: 45%;"></div>
+</div>
+</header>
+<!-- Main Reading Area -->
+<main class="flex-1 px-4 py-6 max-w-2xl mx-auto w-full space-y-8 pb-32">
+<!-- Verse 1 -->
+<div class="flex flex-col gap-4 border-b border-gray-100 dark:border-gray-800 pb-6">
+<div class="flex justify-between items-start gap-4">
+<div class="flex size-8 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary font-bold text-xs">1</div>
+<p class="arabic-text text-3xl text-right leading-loose">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
+</div>
+<div class="pl-12">
+<p class="text-gray-500 dark:text-gray-400 text-sm italic leading-relaxed">In the name of Allah, the Entirely Merciful, the Especially Merciful.</p>
+</div>
+</div>
+<!-- Verse 2 -->
+<div class="flex flex-col gap-4 border-b border-gray-100 dark:border-gray-800 pb-6">
+<div class="flex justify-between items-start gap-4">
+<div class="flex size-8 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary font-bold text-xs">2</div>
+<p class="arabic-text text-3xl text-right leading-loose">ذَٰلِكَ الْكِتَابُ لَا رَيْبَ ۛ فِيهِ ۛ هُدًى لِلْمُتَّقِينَ</p>
+</div>
+<div class="pl-12">
+<p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">This is the Book about which there is no doubt, a guidance for those conscious of Allah -</p>
+</div>
+</div>
+<!-- Verse 3 -->
+<div class="flex flex-col gap-4 border-b border-gray-100 dark:border-gray-800 pb-6">
+<div class="flex justify-between items-start gap-4">
+<div class="flex size-8 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary font-bold text-xs">3</div>
+<p class="arabic-text text-3xl text-right leading-loose">الَّذِينَ يُؤْمِنُونَ بِالْغَيْبِ وَيُقِيمُونَ الصَّلَاةَ وَمِمَّا رَزَقْنَاهُمْ يُنْفِقُونَ</p>
+</div>
+<div class="pl-12">
+<p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Who believe in the unseen, establish prayer, and spend out of what We have provided for them,</p>
+</div>
+</div>
+<!-- Verse 4 -->
+<div class="flex flex-col gap-4 border-b border-gray-100 dark:border-gray-800 pb-6">
+<div class="flex justify-between items-start gap-4">
+<div class="flex size-8 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary font-bold text-xs">4</div>
+<p class="arabic-text text-3xl text-right leading-loose">وَالَّذِينَ يُؤْمِنُونَ بِمَا أُنْزِلَ إِلَيْكَ وَمَا أُنْزِلَ مِنْ قَبْلِكَ وَبِالْآخِرَةِ هُمْ يُوقِنُونَ</p>
+</div>
+<div class="pl-12">
+<p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">And who believe in what has been revealed to you, [O Muhammad], and what was revealed before you, and of the Hereafter they are certain [in faith].</p>
+</div>
+</div>
+<!-- Verse 5 -->
+<div class="flex flex-col gap-4 border-b border-gray-100 dark:border-gray-800 pb-6">
+<div class="flex justify-between items-start gap-4">
+<div class="flex size-8 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary font-bold text-xs">5</div>
+<p class="arabic-text text-3xl text-right leading-loose">أُولَٰئِكَ عَلَىٰ هُدًى مِنْ رَبِّهِمْ ۖ وَأُولَٰئِكَ هُمُ الْمُفْلِحُونَ</p>
+</div>
+<div class="pl-12">
+<p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Those are upon [right] guidance from their Lord, and it is those who are the successful.</p>
+</div>
+</div>
+</main>
+<!-- Navigation Floating Controls -->
+<div class="fixed bottom-24 left-0 right-0 px-6 flex justify-between pointer-events-none">
+<button class="pointer-events-auto size-14 flex items-center justify-center bg-white dark:bg-gray-800 text-gray-800 dark:text-white rounded-full shadow-xl border border-gray-200 dark:border-gray-700 active:scale-95 transition-transform">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</button>
+<button class="pointer-events-auto size-14 flex items-center justify-center bg-white dark:bg-gray-800 text-gray-800 dark:text-white rounded-full shadow-xl border border-gray-200 dark:border-gray-700 active:scale-95 transition-transform">
+<span class="material-symbols-outlined">arrow_forward_ios</span>
+</button>
+</div>
+<!-- Mark as Read Footer -->
+<footer class="fixed bottom-0 left-0 right-0 p-4 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+<button class="w-full bg-primary text-background-dark font-bold h-14 rounded-xl flex items-center justify-center gap-2 shadow-lg active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined">check_circle</span>
+            Mark as Read
+        </button>
+<div class="h-6"></div> <!-- iOS Home Indicator spacing -->
+</footer>
+</body></html>

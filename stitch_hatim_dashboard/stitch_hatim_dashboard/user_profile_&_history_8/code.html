@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Group Chat - HatimConnect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#19e66b",
+                        "emerald-custom": "#10b981",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#0a1a12",
+                        "card-bg": "#112117",
+                        "chat-bubble-user": "#10b981",
+                        "chat-bubble-other": "#1a2e23",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "3xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            font-family: "Lexend", sans-serif;
+            -webkit-tap-highlight-color: transparent;
+            background-color: #0a1a12;
+            height: 100dvh;
+            overflow: hidden;
+        }
+        .islamic-pattern {
+            background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuCdJLrKl4xn6ihPK-oCxLIJYBg4CRt95aBTJEu-X6cJtrvnq5EhqdOZFYGvKB6RHCsDEsX8SehnLjdQZImxgrp4855K2DBxJMl8ORglSZvytYH8ziHCnfiiAemRMK-_HcszBg5rEu5x67e811oXNsE0SIz_TFBSFrUyeGHjhSjRN50KoCB_uuy2zsBooL7BNusWR0vXhCb4S0zEwJ4rTCCR1Vt1X_7EGf9RDyxo7EI7WVeWHP_tjaRaqWnGF7XEXf5LUk_yPEsqcFY);
+            background-size: 240px;
+            background-repeat: repeat;
+            opacity: 0.05;
+        }
+        .chat-container {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        .chat-container::-webkit-scrollbar {
+            display: none;
+        }
+        .ios-blur {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-white flex flex-col">
+<nav class="shrink-0 z-50 bg-background-dark/80 ios-blur border-b border-white/5 safe-top">
+<div class="px-4 py-3 flex items-center gap-3">
+<button class="p-2 -ml-2 text-emerald-custom">
+<span class="material-symbols-outlined">arrow_back_ios</span>
+</button>
+<div class="flex-1 min-w-0">
+<h1 class="text-base font-bold truncate">Ramadan 2024 Hatim Group</h1>
+<p class="text-[10px] text-emerald-custom/80 font-medium uppercase tracking-wider">12 Active Participants</p>
+</div>
+<button class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-emerald-custom">info</span>
+</button>
+</div>
+</nav>
+<main class="flex-1 overflow-y-auto chat-container relative">
+<div class="absolute inset-0 islamic-pattern pointer-events-none"></div>
+<div class="p-4 space-y-6 relative z-10">
+<div class="flex justify-center">
+<span class="text-[10px] font-bold uppercase tracking-[0.2em] text-white/30 bg-white/5 px-3 py-1 rounded-full">Today</span>
+</div>
+<div class="flex items-end gap-2 max-w-[85%]">
+<div class="w-8 h-8 rounded-full bg-emerald-custom/20 border border-emerald-custom/30 flex items-center justify-center shrink-0">
+<span class="text-[10px] font-bold text-emerald-custom">AM</span>
+</div>
+<div>
+<p class="text-[10px] font-bold text-emerald-custom/80 ml-2 mb-1">Ahmed Mansour</p>
+<div class="bg-chat-bubble-other border border-white/5 px-4 py-3 rounded-2xl rounded-bl-none shadow-sm">
+<p class="text-sm leading-relaxed">Assalamu Alaikum everyone! Just finished Juz 15. Progressing well! 📖</p>
+</div>
+<p class="text-[9px] text-white/20 mt-1 ml-2">09:42 AM</p>
+</div>
+</div>
+<div class="flex items-end gap-2 max-w-[85%]">
+<div class="w-8 h-8 rounded-full bg-emerald-custom/20 border border-emerald-custom/30 flex items-center justify-center shrink-0">
+<span class="text-[10px] font-bold text-emerald-custom">FK</span>
+</div>
+<div class="w-full">
+<p class="text-[10px] font-bold text-emerald-custom/80 ml-2 mb-1">Fatima Khan</p>
+<div class="bg-card-bg border border-emerald-custom/20 p-4 rounded-2xl rounded-bl-none shadow-lg">
+<div class="text-right mb-3">
+<p class="text-xl font-serif text-emerald-custom leading-loose" dir="rtl">وَقُل رَّبِّ زِدْنِي عِلْمًا</p>
+</div>
+<div class="border-t border-white/5 pt-2">
+<p class="text-xs italic text-white/60">"And say, My Lord, increase me in knowledge."</p>
+<p class="text-[9px] font-bold text-emerald-custom/50 mt-1 uppercase tracking-tighter">Surah Taha - 20:114</p>
+</div>
+</div>
+<p class="text-[9px] text-white/20 mt-1 ml-2">10:15 AM</p>
+</div>
+</div>
+<div class="flex flex-col items-end gap-1">
+<div class="max-w-[85%]">
+<div class="bg-emerald-custom text-background-dark px-4 py-3 rounded-2xl rounded-br-none shadow-md font-medium">
+<p class="text-sm">MashaAllah Fatima, beautiful verse. I am starting Juz 16 now. InshaAllah will finish by Isha.</p>
+</div>
+</div>
+<div class="flex items-center gap-1 mr-1">
+<p class="text-[9px] text-white/20">10:20 AM</p>
+<span class="material-symbols-outlined text-[12px] text-emerald-custom">done_all</span>
+</div>
+</div>
+<div class="flex items-end gap-2 max-w-[85%]">
+<div class="w-8 h-8 rounded-full bg-emerald-custom/20 border border-emerald-custom/30 flex items-center justify-center shrink-0">
+<span class="text-[10px] font-bold text-emerald-custom">ZA</span>
+</div>
+<div>
+<div class="bg-gradient-to-br from-emerald-custom/20 to-transparent p-4 rounded-2xl rounded-bl-none border border-emerald-custom/20 flex flex-col items-center">
+<span class="material-symbols-outlined text-4xl text-emerald-custom mb-1">star</span>
+<p class="text-[10px] font-bold text-emerald-custom uppercase tracking-[0.2em]">Keep it up!</p>
+</div>
+<p class="text-[9px] text-white/20 mt-1 ml-2">10:45 AM</p>
+</div>
+</div>
+</div>
+</main>
+<footer class="shrink-0 bg-background-dark/95 ios-blur border-t border-white/10 px-4 py-4 pb-8">
+<div class="flex items-end gap-3 max-w-lg mx-auto">
+<div class="flex gap-2 pb-1">
+<button class="w-10 h-10 flex items-center justify-center text-white/40 hover:text-emerald-custom transition-colors">
+<span class="material-symbols-outlined">auto_stories</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center text-white/40 hover:text-emerald-custom transition-colors">
+<span class="material-symbols-outlined">sticky_note_2</span>
+</button>
+</div>
+<div class="flex-1 relative">
+<textarea class="w-full bg-white/5 border border-white/10 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-emerald-custom/50 focus:ring-1 focus:ring-emerald-custom/50 transition-all resize-none max-h-32 text-white placeholder:text-white/20" placeholder="Type your message..." rows="1"></textarea>
+</div>
+<button class="w-12 h-12 rounded-full bg-emerald-custom text-background-dark flex items-center justify-center shadow-lg shadow-emerald-900/40 active:scale-95 transition-transform">
+<span class="material-symbols-outlined font-bold">send</span>
+</button>
+</div>
+</footer>
+
+</body></html>

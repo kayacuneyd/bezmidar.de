@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>User Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;family=Noto+Sans:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#10b981", // Emerald 600
+                        "primary-dark": "#059669",
+                        "off-white": "#f8faf9",
+                        "background": "#ffffff",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "1rem",
+                        "2xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        :root {
+            --primary: #10b981;
+        }
+        body {
+            font-family: 'Lexend', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+            background-color: #f8faf9;
+        }
+        .custom-scroll-hide::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-slate-900 min-h-screen flex flex-col">
+<header class="bg-gradient-to-b from-emerald-50 to-off-white px-6 pt-12 pb-8 rounded-b-[2.5rem] shadow-sm">
+<div class="flex items-center justify-between mb-6">
+<button class="size-10 flex items-center justify-center rounded-full bg-white shadow-sm">
+<span class="material-symbols-outlined text-slate-600">arrow_back_ios_new</span>
+</button>
+<h1 class="text-lg font-bold text-slate-800">My Profile</h1>
+<button class="size-10 flex items-center justify-center rounded-full bg-white shadow-sm">
+<span class="material-symbols-outlined text-slate-600">settings</span>
+</button>
+</div>
+<div class="flex flex-col items-center">
+<div class="relative">
+<img alt="User Profile" class="size-24 rounded-full border-4 border-white shadow-md object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8fFGs8UeY7Q6XUzTGYujQfkPSSg64QzOaUGfaxDypo-t3rPo2JXkZXju9U0bzUD0Gg8JDvW4GLVMEwW9t3tT86DsLoY7gnKcjKuE0Mkim_Q0fVXzvvhbgmz6pDXEF31B92sHH0M0YPO00A1EgO_K7m--cOp6XwAgaoMabaBpcKYbygnqPQm0jkoW0MBYLH4p5CWa_Tk7xpvy9rPtyeWGGZaF9607nJrIuBJm50dPKoCNXpAFWMIS8zJa2QXwAgKEGiHi5oiCrljg"/>
+<div class="absolute bottom-0 right-0 size-7 bg-primary border-2 border-white rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[16px] font-bold">edit</span>
+</div>
+</div>
+<h2 class="mt-4 text-2xl font-bold text-slate-800">Ahmed Al-Farsi</h2>
+<p class="text-slate-500 font-medium text-sm">Member since March 2023</p>
+</div>
+</header>
+<main class="flex-1 px-4 py-6 -mt-4">
+<div class="grid grid-cols-3 gap-3 mb-8">
+<div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 flex flex-col items-center">
+<span class="text-primary font-bold text-xl">12</span>
+<span class="text-[11px] text-slate-500 font-medium uppercase tracking-wider">Hatims</span>
+</div>
+<div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 flex flex-col items-center">
+<span class="text-primary font-bold text-xl">45</span>
+<span class="text-[11px] text-slate-500 font-medium uppercase tracking-wider">Juz Read</span>
+</div>
+<div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 flex flex-col items-center">
+<span class="text-primary font-bold text-xl">156</span>
+<span class="text-[11px] text-slate-500 font-medium uppercase tracking-wider">Day Streak</span>
+</div>
+</div>
+<div class="mb-8">
+<div class="flex items-center justify-between px-2 mb-4">
+<h3 class="font-bold text-slate-800">Badges &amp; Achievements</h3>
+<button class="text-primary text-sm font-bold">View All</button>
+</div>
+<div class="flex gap-4 overflow-x-auto pb-2 custom-scroll-hide">
+<div class="flex-shrink-0 flex flex-col items-center gap-2">
+<div class="size-16 rounded-full bg-emerald-100 flex items-center justify-center border-2 border-primary/20">
+<span class="material-symbols-outlined text-primary text-3xl">military_tech</span>
+</div>
+<span class="text-[10px] font-bold text-slate-600">Early Bird</span>
+</div>
+<div class="flex-shrink-0 flex flex-col items-center gap-2">
+<div class="size-16 rounded-full bg-emerald-100 flex items-center justify-center border-2 border-primary/20">
+<span class="material-symbols-outlined text-primary text-3xl">auto_stories</span>
+</div>
+<span class="text-[10px] font-bold text-slate-600">Consistent</span>
+</div>
+<div class="flex-shrink-0 flex flex-col items-center gap-2">
+<div class="size-16 rounded-full bg-emerald-100 flex items-center justify-center border-2 border-primary/20">
+<span class="material-symbols-outlined text-primary text-3xl">group</span>
+</div>
+<span class="text-[10px] font-bold text-slate-600">Team Player</span>
+</div>
+<div class="flex-shrink-0 flex flex-col items-center gap-2">
+<div class="size-16 rounded-full bg-emerald-50 flex items-center justify-center border-2 border-slate-200">
+<span class="material-symbols-outlined text-slate-300 text-3xl">workspace_premium</span>
+</div>
+<span class="text-[10px] font-bold text-slate-400">Locked</span>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+<button class="w-full flex items-center justify-between p-4 border-b border-slate-50 active:bg-slate-50 transition-colors">
+<div class="flex items-center gap-4">
+<div class="size-10 rounded-xl bg-slate-50 flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-500">menu_book</span>
+</div>
+<div class="text-left">
+<p class="font-semibold text-slate-700">Reading History</p>
+<p class="text-xs text-slate-400">Review your past completed Juz</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-400">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-4 border-b border-slate-50 active:bg-slate-50 transition-colors">
+<div class="flex items-center gap-4">
+<div class="size-10 rounded-xl bg-slate-50 flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-500">group</span>
+</div>
+<div class="text-left">
+<p class="font-semibold text-slate-700">My Groups</p>
+<p class="text-xs text-slate-400">Manage your Hatim circles</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-400">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-4 active:bg-slate-50 transition-colors">
+<div class="flex items-center gap-4">
+<div class="size-10 rounded-xl bg-slate-50 flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-500">notifications</span>
+</div>
+<div class="text-left">
+<p class="font-semibold text-slate-700">Notifications</p>
+<p class="text-xs text-slate-400">Prayer times &amp; reading alerts</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="size-2 bg-primary rounded-full"></span>
+<span class="material-symbols-outlined text-slate-400">chevron_right</span>
+</div>
+</button>
+</div>
+<div class="mt-8 px-2">
+<button class="w-full h-14 bg-primary hover:bg-primary-dark text-white rounded-2xl font-bold flex items-center justify-center gap-2 shadow-lg shadow-emerald-200 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined">add_circle</span>
+            Start New Hatim
+        </button>
+</div>
+</main>
+<nav class="bg-white border-t border-slate-100 pb-8 pt-3 px-6 flex justify-between items-center sticky bottom-0">
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">auto_stories</span>
+<span class="text-[10px] font-medium">Read</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">person</span>
+<span class="text-[10px] font-bold">Profile</span>
+</div>
+</nav>
+<div class="fixed bottom-1 left-1/2 -translate-x-1/2 w-32 h-1 bg-slate-200 rounded-full z-50"></div>
+
+</body></html>

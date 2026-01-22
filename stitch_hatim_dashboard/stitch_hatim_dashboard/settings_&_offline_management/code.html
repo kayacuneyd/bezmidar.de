@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HatimConnect Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#19e66b",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#112117",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .ios-switch {
+            position: relative;
+            display: inline-block;
+            width: 44px;
+            height: 24px;
+        }
+        .ios-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #3f3f3f;
+            transition: .3s;
+            border-radius: 24px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 2px;
+            bottom: 2px;
+            background-color: white;
+            transition: .3s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #19e66b;
+        }
+        input:checked + .slider:before {
+            transform: translateX(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white min-h-screen">
+<div class="max-w-md mx-auto min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="flex items-center p-4 pb-2 justify-between">
+<div class="text-primary flex size-12 shrink-0 items-center cursor-pointer">
+<span class="material-symbols-outlined">arrow_back_ios</span>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12">Settings</h2>
+</div>
+</header>
+<main class="flex-1 overflow-y-auto px-4 pb-12">
+<!-- Section: Reading Preferences -->
+<section class="mt-4">
+<h3 class="text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400 font-bold px-1 pb-2">Reading Preferences</h3>
+<div class="bg-white dark:bg-white/5 rounded-xl overflow-hidden shadow-sm">
+<!-- ListItem: Translation Source -->
+<div class="flex items-center gap-4 px-4 py-4 min-h-14 justify-between hover:bg-slate-100 dark:hover:bg-white/10 cursor-pointer transition-colors border-b border-slate-100 dark:border-white/5">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">translate</span>
+<p class="text-base font-normal leading-normal">Translation Source</p>
+</div>
+<div class="flex items-center gap-2">
+<p class="text-slate-500 dark:text-slate-400 text-sm">Sahih International</p>
+<span class="material-symbols-outlined text-slate-400 text-lg">chevron_right</span>
+</div>
+</div>
+<!-- ListItem: Font Size -->
+<div class="flex items-center gap-4 px-4 py-4 min-h-14 justify-between hover:bg-slate-100 dark:hover:bg-white/10 cursor-pointer transition-colors border-b border-slate-100 dark:border-white/5">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">format_size</span>
+<p class="text-base font-normal leading-normal">Font Size</p>
+</div>
+<div class="flex items-center gap-2">
+<p class="text-slate-500 dark:text-slate-400 text-sm">Medium</p>
+<span class="material-symbols-outlined text-slate-400 text-lg">chevron_right</span>
+</div>
+</div>
+<!-- ListItem: Script Type -->
+<div class="flex items-center gap-4 px-4 py-4 min-h-14 justify-between hover:bg-slate-100 dark:hover:bg-white/10 cursor-pointer transition-colors">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">menu_book</span>
+<p class="text-base font-normal leading-normal">Script Type</p>
+</div>
+<div class="flex items-center gap-2">
+<p class="text-slate-500 dark:text-slate-400 text-sm">Uthmani</p>
+<span class="material-symbols-outlined text-slate-400 text-lg">chevron_right</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Notifications -->
+<section class="mt-8">
+<h3 class="text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400 font-bold px-1 pb-2">Notifications</h3>
+<div class="bg-white dark:bg-white/5 rounded-xl overflow-hidden shadow-sm">
+<!-- Toggle Item: Daily Reminders -->
+<div class="flex items-center gap-4 px-4 py-4 min-h-14 justify-between border-b border-slate-100 dark:border-white/5">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">alarm</span>
+<p class="text-base font-normal leading-normal">Daily Reminders</p>
+</div>
+<label class="ios-switch">
+<input checked="" type="checkbox"/>
+<span class="slider"></span>
+</label>
+</div>
+<!-- Toggle Item: Hatim Completion -->
+<div class="flex items-center gap-4 px-4 py-4 min-h-14 justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">celebration</span>
+<p class="text-base font-normal leading-normal">Hatim Completion</p>
+</div>
+<label class="ios-switch">
+<input checked="" type="checkbox"/>
+<span class="slider"></span>
+</label>
+</div>
+</div>
+</section>
+<!-- Section: Storage & Offline -->
+<section class="mt-8">
+<div class="flex items-center justify-between px-1 pb-2">
+<h3 class="text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400 font-bold">Storage &amp; Offline</h3>
+</div>
+<div class="bg-white dark:bg-white/5 rounded-xl overflow-hidden shadow-sm p-4">
+<!-- Toggle: Offline Mode -->
+<div class="flex items-center gap-4 min-h-14 justify-between">
+<div class="flex-1">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">cloud_off</span>
+<p class="text-base font-normal leading-normal">Offline Mode</p>
+</div>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-1 ml-9">Access Quran text and study without internet</p>
+</div>
+<label class="ios-switch">
+<input type="checkbox"/>
+<span class="slider"></span>
+</label>
+</div>
+<div class="mt-6 space-y-4">
+<!-- Storage Meter -->
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-medium">
+<span class="text-slate-500">Storage Used</span>
+<span class="text-primary">120.4 MB / 500 MB</span>
+</div>
+<div class="w-full bg-slate-200 dark:bg-white/10 h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[24%] rounded-full shadow-[0_0_10px_rgba(25,230,107,0.3)]"></div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex gap-3 pt-2">
+<button class="flex-1 flex items-center justify-center gap-2 bg-primary/10 hover:bg-primary/20 text-primary py-3 px-4 rounded-lg font-semibold transition-all text-sm border border-primary/20">
+<span class="material-symbols-outlined text-lg">download</span>
+                                Download All
+                            </button>
+<button class="flex-1 flex items-center justify-center gap-2 bg-red-500/10 hover:bg-red-500/20 text-red-500 py-3 px-4 rounded-lg font-semibold transition-all text-sm border border-red-500/20">
+<span class="material-symbols-outlined text-lg">delete_sweep</span>
+                                Clear Cache
+                            </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: About -->
+<section class="mt-8">
+<div class="bg-white dark:bg-white/5 rounded-xl overflow-hidden shadow-sm">
+<div class="flex items-center gap-4 px-4 py-4 min-h-14 justify-between border-b border-slate-100 dark:border-white/5">
+<p class="text-base font-normal leading-normal">App Version</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm">2.4.1 (Stable)</p>
+</div>
+<div class="flex items-center gap-4 px-4 py-4 min-h-14 justify-between hover:bg-slate-100 dark:hover:bg-white/10 cursor-pointer">
+<p class="text-base font-normal leading-normal">Terms of Service</p>
+<span class="material-symbols-outlined text-slate-400 text-lg">open_in_new</span>
+</div>
+</div>
+</section>
+<div class="mt-12 text-center pb-8">
+<p class="text-xs text-slate-400 dark:text-slate-500 italic">"The best among you are those who learn the Quran and teach it."</p>
+<div class="mt-4 flex justify-center opacity-30">
+<img alt="App Logo" class="w-8 h-8 rounded-full grayscale" data-alt="Abstract green spiritual geometric pattern" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCV4Rll8tu-A8G-3JcZDKXwFRyhfclu9eoRKGKGWe_WaS0cSFPCSqrWU7bWnyZPt_cUeBduoQBRfMFGe-Ze44r6ZGncRBp1AJX0dzFoT9ny2ahhtKb7LxoHVNKTz2o7nYFAY5HDJhZ1X7UNsAlmW-llXr9kj-zZXPO6UscSdbiG9WFxhzof_jZKouVH8U1-Dgy8qorVfFhk39nkdpsZIvE-JAgZ0YToIggPrHiPWO6Iu8cfkm9vVw6HKEaZGcfWgmoxA-ZUBLpP6qE"/>
+</div>
+</div>
+</main>
+<!-- PWA Style Tab Bar Spacer -->
+<div class="h-16 shrink-0"></div>
+</div>
+</body></html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HatimConnect - Quran Reader</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#10b981", // Emerald Green
+                        "background-main": "#fdfcf9", // Off-white/Cream
+                        "text-main": "#2d3436", // Soft black/Dark gray
+                        "accent-soft": "#f1f5f2",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
+        :root {
+            --pattern-color: rgba(16, 185, 129, 0.03);
+        }
+        .arabic-text {
+            font-family: 'Amiri', serif;
+            line-height: 2.8;
+            direction: rtl;
+        }.spiritual-pattern {
+            background-image: radial-gradient(var(--pattern-color) 2px, transparent 2px);
+            background-size: 32px 32px;
+            background-position: 0 0, 16px 16px;
+        }
+        input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            background: transparent;
+            cursor: pointer;
+        }
+        input[type="range"]::-webkit-slider-runnable-track {
+            background: #e2e8f0;
+            height: 4px;
+            border-radius: 2px;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            margin-top: -6px;
+            background-color: #10b981;
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            border: 2px solid white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        body {
+            min-height: 100dvh;
+            background-color: #fdfcf9;
+        }
+        .page-content {
+            height: calc(100dvh - 280px);
+            overflow-y: auto;
+        }
+        .ios-bottom-padding {
+            padding-bottom: env(safe-area-inset-bottom, 24px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-main font-display text-text-main flex flex-col overflow-hidden spiritual-pattern">
+<header class="sticky top-0 z-50 bg-background-main/80 backdrop-blur-md border-b border-emerald-100">
+<div class="flex items-center p-4 justify-between pt-safe">
+<div class="flex items-center gap-2">
+<div class="text-primary flex items-center" title="Offline Status">
+<span class="material-symbols-outlined text-[20px]">cloud_done</span>
+</div>
+<span class="text-[10px] font-bold text-primary uppercase tracking-widest">Synced</span>
+</div>
+<div class="flex flex-col items-center">
+<h2 class="text-base font-bold leading-tight tracking-tight text-text-main">Surah Al-Baqarah</h2>
+<p class="text-[9px] text-gray-500 font-medium uppercase tracking-widest">Juz 1 • Page 1 of 604</p>
+</div>
+<div class="flex items-center gap-1">
+<button class="flex size-9 items-center justify-center rounded-full hover:bg-emerald-50 text-gray-600 transition-colors">
+<span class="material-symbols-outlined text-[22px]">settings</span>
+</button>
+</div>
+</div>
+</header>
+<main class="page-content flex-1 px-6 py-6 max-w-2xl mx-auto w-full">
+<div class="space-y-10">
+<div class="flex justify-center">
+<div class="relative w-full flex items-center justify-center">
+<div aria-hidden="true" class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-emerald-100"></div>
+</div>
+<div class="relative bg-background-main px-4 text-[10px] text-emerald-600/60 font-bold uppercase tracking-[0.3em]">
+                    Start of Juz 1
+                </div>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex justify-center py-2">
+<p class="arabic-text text-4xl text-center text-text-main">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
+</div>
+</div>
+<div class="flex flex-col gap-8 pb-20">
+<div class="relative">
+<p class="arabic-text text-3xl text-right text-text-main leading-[2.5]">
+                    ذَٰلِكَ الْكِتَابُ لَا رَيْبَ ۛ فِيهِ ۛ هُدًى لِلْمُتَّقِينَ <span class="inline-flex size-7 items-center justify-center rounded-full border-2 border-primary/20 text-[11px] font-bold text-primary align-middle mr-2">١</span>
+                    الَّذِينَ يُؤْمِنُونَ بِالْغَيْبِ وَيُقِيمُونَ الصَّلَاةَ وَمِمَّا رَزَقْنَاهُمْ يُنْفِقُونَ <span class="inline-flex size-7 items-center justify-center rounded-full border-2 border-primary/20 text-[11px] font-bold text-primary align-middle mr-2">٢</span>
+                    وَالَّذِينَ يُؤْمِنُونَ بِمَا أُنْزلَ إِلَيْكَ وَمَا أُنْزلَ مِنْ قَبْلِكَ وَبِالْآخِرَةِ هُمْ يُوقِنُونَ <span class="inline-flex size-7 items-center justify-center rounded-full border-2 border-primary/20 text-[11px] font-bold text-primary align-middle mr-2">٣</span>
+                    أُولَٰئِكَ عَلَىٰ هُدًى مِنْ رَبِّهِمْ ۖ وَأُولَٰئِكَ هُمُ الْمُفْلِحُونَ <span class="inline-flex size-7 items-center justify-center rounded-full border-2 border-primary/20 text-[11px] font-bold text-primary align-middle mr-2">٤</span>
+</p>
+</div>
+<div class="pt-6 border-t border-emerald-50">
+<p class="text-gray-600 text-sm leading-relaxed italic font-light">
+                    This is the Book about which there is no doubt, a guidance for those conscious of Allah - Who believe in the unseen, establish prayer, and spend out of what We have provided for them...
+                </p>
+</div>
+</div>
+</div>
+</main>
+<section class="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-xl border-t border-emerald-100 z-50 ios-bottom-padding">
+<div class="max-w-2xl mx-auto px-4 pt-4 pb-2 space-y-5">
+<div class="space-y-4">
+<div class="bg-emerald-50/50 border border-emerald-100 rounded-2xl px-4 py-3 flex items-center gap-4">
+<button class="size-10 flex-shrink-0 flex items-center justify-center bg-primary text-white rounded-full shadow-md shadow-emerald-200 active:scale-90 transition-transform">
+<span class="material-symbols-outlined fill-1">play_arrow</span>
+</button>
+<div class="flex-1 flex flex-col gap-1.5">
+<div class="flex justify-between text-[10px] font-bold text-emerald-700/70 uppercase tracking-tighter">
+<span>01:24</span>
+<span>03:45</span>
+</div>
+<input class="w-full h-1" max="100" min="0" type="range" value="35"/>
+</div>
+<button class="size-9 flex-shrink-0 flex items-center justify-center text-emerald-600 hover:bg-emerald-100 rounded-full transition-colors">
+<span class="material-symbols-outlined text-[20px]">speed</span>
+</button>
+</div>
+<div class="px-2 space-y-3">
+<div class="flex justify-between items-center text-[10px] font-bold text-gray-400 uppercase tracking-[0.15em]">
+<button class="flex items-center gap-1 text-gray-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm">chevron_left</span> Prev
+                    </button>
+<div class="flex flex-col items-center">
+<span class="text-text-main">Page <span class="text-primary">1</span> of 604</span>
+</div>
+<button class="flex items-center gap-1 text-gray-500 hover:text-primary transition-colors">
+                        Next <span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+<div class="relative h-1.5 w-full bg-gray-100 rounded-full overflow-hidden">
+<div class="absolute top-0 left-0 h-full bg-primary w-[0.16%] transition-all duration-300"></div>
+</div>
+</div>
+</div>
+<button class="w-full bg-primary text-white font-bold h-14 rounded-2xl flex items-center justify-center gap-3 shadow-lg shadow-emerald-100 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined font-bold">check_circle</span>
+            Mark as Read
+        </button>
+</div>
+</section>
+
+</body></html>

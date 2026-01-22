@@ -1,0 +1,31 @@
+{
+    "hosting_constraints": {
+        "environment": "Hostinger Shared Hosting (Business)",
+        "nodejs_allowed": true,
+        "long_running_processes": false,
+        "websockets": false,
+        "queues": false
+    },
+    "backend_rules": {
+        "language": "Node.js",
+        "framework": "Express",
+        "style": "REST_API_ONLY",
+        "forbidden": [
+            "server_side_rendering",
+            "websocket_servers",
+            "heavy_background_workers"
+        ]
+    },
+    "frontend_rules": {
+        "framework": "Vue 3",
+        "build_tool": "Vite",
+        "pwa_required": true,
+        "mobile_first": true,
+        "forbidden": [
+            "jQuery",
+            "HTMX",
+            "desktop_first_design"
+        ]
+    },
+    "architecture_principle": "frontend_and_backend_are_strictly_separated"
+}

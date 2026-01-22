@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Hatim Session Details</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;family=Noto+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#19e66b",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#112117",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Lexend', sans-serif;
+        }
+        .progress-circle {
+            background: conic-gradient(#19e66b 216deg, #244732 0deg);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-white min-h-screen">
+<!-- Top App Bar -->
+<div class="sticky top-0 z-50 flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between border-b border-white/10">
+<div class="text-white flex size-10 shrink-0 items-center justify-center cursor-pointer">
+<span class="material-symbols-outlined">arrow_back_ios</span>
+</div>
+<h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Hatim Session Details</h2>
+<div class="flex w-10 items-center justify-end">
+<button class="flex cursor-pointer items-center justify-center rounded-lg h-10 w-10 bg-transparent text-white">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Hero Section / Header -->
+<div class="flex flex-col items-center px-4 py-6">
+<h3 class="text-white tracking-light text-2xl font-bold leading-tight text-center">Ramadan Hatim 2024</h3>
+<p class="text-[#93c8a8] text-sm font-normal leading-normal pb-3 pt-1 text-center">Target Date: Oct 25, 2024</p>
+</div>
+<!-- Progress Stats -->
+<div class="px-4 pb-6">
+<div class="flex items-center gap-6 rounded-xl p-6 bg-[#244732] border border-white/5">
+<div class="relative flex size-24 shrink-0 items-center justify-center rounded-full progress-circle">
+<div class="flex size-[80%] items-center justify-center rounded-full bg-[#244732]">
+<span class="text-white text-xl font-bold">60%</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<p class="text-white/70 text-sm font-medium">Session Progress</p>
+<p class="text-white text-2xl font-bold leading-tight">18/30 Juz</p>
+<p class="text-primary text-sm font-medium">+3 since yesterday</p>
+</div>
+</div>
+</div>
+<!-- Action Button -->
+<div class="px-4 pb-4">
+<button class="flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-primary h-12 text-background-dark font-bold text-base transition-transform active:scale-95">
+<span class="material-symbols-outlined">share</span>
+            Share Invite Link
+        </button>
+</div>
+<!-- Juz Grid Section -->
+<div class="px-4">
+<div class="flex items-center justify-between pb-4 pt-2">
+<h3 class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">Juz Distribution</h3>
+<span class="text-primary text-xs font-bold uppercase tracking-wider bg-primary/10 px-2 py-1 rounded">30 Total</span>
+</div>
+<div class="grid grid-cols-3 gap-3 pb-10">
+<!-- Completed Juz -->
+<div class="flex flex-col items-center justify-center gap-2 rounded-xl p-4 bg-[#244732] border border-primary/30 relative">
+<span class="absolute top-2 right-2 text-primary">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+</span>
+<p class="text-white/60 text-[10px] font-bold uppercase">Juz</p>
+<p class="text-white text-2xl font-black">01</p>
+<img alt="User avatar" class="size-6 rounded-full border border-primary" data-alt="Avatar of user who completed this section" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSoIfXFbns3eV6o12qkhhNzTahtc4IovaCj2rTKem_MvuXOFwOyrdke6E2cTcxEt32qx0JULYXhc5UXvmINAdgnCOcYtOpo1fEGAMm1xkEW7Jii6RPLDDQwlwbQXM7UDRpemdLzdg8xUjKhIVoi48V53Z-bK-JazF1-95dqzixZzU6v-v9JS3SuVbcavD2a5X-QsW3wsCiN9aWNYTHrDKCkt4g-dcPnrc6hfxhr3FjigldzVIWAXGeDCL1w3hT6PrjC9KK6UJ6RoQ"/>
+</div>
+<!-- In Progress Juz -->
+<div class="flex flex-col items-center justify-center gap-2 rounded-xl p-4 bg-[#244732] border border-yellow-500/30 relative">
+<span class="absolute top-2 right-2 text-yellow-500">
+<span class="material-symbols-outlined text-sm">pending</span>
+</span>
+<p class="text-white/60 text-[10px] font-bold uppercase">Juz</p>
+<p class="text-white text-2xl font-black">02</p>
+<img alt="User avatar" class="size-6 rounded-full border border-yellow-500" data-alt="Avatar of user reading this section" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-xwjp2Hi05R-2QuaXS8vlD6x112LYNCaYzk-3klwD1GEWGjdoP22z425OB2WsVWrddIvR3YkD30xWMusPCtiCMbU-o6tyP1hiAZqZHfIviauEpAOS5tXJ7iaopAG89lh0KN0ZXKciSbkjbeuby4K86t7crV5kvx3zRp0jnvATOHnDvcCrxhCuHCW1-Ie9aV2XOVdQeIjMFQfpqg3IZ4Cp2wbp9ktTwtmfS5tJ1fUxYjSlb5ZvVUSSq10zATjIfu34W24v2-U82RA"/>
+</div>
+<!-- Available Juz -->
+<div class="flex flex-col items-center justify-center gap-2 rounded-xl p-4 bg-white/5 border border-white/10 hover:border-primary/50 transition-colors cursor-pointer group">
+<p class="text-white/40 text-[10px] font-bold uppercase group-hover:text-primary/70">Juz</p>
+<p class="text-white/50 text-2xl font-black group-hover:text-white">03</p>
+<div class="flex size-6 items-center justify-center rounded-full bg-white/10 group-hover:bg-primary/20">
+<span class="material-symbols-outlined text-sm text-white/40 group-hover:text-primary">add</span>
+</div>
+</div>
+<!-- More grid items for illustration -->
+<div class="flex flex-col items-center justify-center gap-2 rounded-xl p-4 bg-white/5 border border-white/10 cursor-pointer">
+<p class="text-white/40 text-[10px] font-bold uppercase">Juz</p>
+<p class="text-white/50 text-2xl font-black">04</p>
+<div class="flex size-6 items-center justify-center rounded-full bg-white/10">
+<span class="material-symbols-outlined text-sm text-white/40">add</span>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center gap-2 rounded-xl p-4 bg-[#244732] border border-primary/30 relative">
+<span class="absolute top-2 right-2 text-primary">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+</span>
+<p class="text-white/60 text-[10px] font-bold uppercase">Juz</p>
+<p class="text-white text-2xl font-black">05</p>
+<img alt="User avatar" class="size-6 rounded-full border border-primary" data-alt="Small circular profile photo of a person" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7j-0R-wpf_1fZKv8-Hk6n0C9A3EW6wqMZW_hZAzp7lBhnhso65vbE8AE3N0sKrI-k6iFhOfRYVE55lqj0ClZqw8o7BHCYlWhNbQoODASofA75AprtXMQDL2DptIyaqxNFkUTD9KA8LNF_-UdNCHS_ahVY5VGPts4_bFPE3irsnzAj5-MKyKLr7-yuK-iJnNIF53tydgM6Z0URCp2SYbH1usDaY701l6kU-vkXlF_BVMSM_yxsnwSWw4jj8O1x1n17_PrA1hbaSYQ"/>
+</div>
+<div class="flex flex-col items-center justify-center gap-2 rounded-xl p-4 bg-white/5 border border-white/10 cursor-pointer">
+<p class="text-white/40 text-[10px] font-bold uppercase">Juz</p>
+<p class="text-white/50 text-2xl font-black">06</p>
+<div class="flex size-6 items-center justify-center rounded-full bg-white/10">
+<span class="material-symbols-outlined text-sm text-white/40">add</span>
+</div>
+</div>
+<!-- Repeating simple pattern for Juz 7-12 -->
+<div class="flex flex-col items-center justify-center gap-2 rounded-xl p-4 bg-[#244732] border border-yellow-500/30 relative">
+<span class="absolute top-2 right-2 text-yellow-500">
+<span class="material-symbols-outlined text-sm">pending</span>
+</span>
+<p class="text-white/60 text-[10px] font-bold uppercase">Juz</p>
+<p class="text-white text-2xl font-black">07</p>
+<div class="size-6 flex items-center justify-center rounded-full bg-yellow-500/20 text-yellow-500 text-[10px] font-bold uppercase">Me</div>
+</div>
+<div class="flex flex-col items-center justify-center gap-2 rounded-xl p-4 bg-[#244732] border border-primary/30 relative">
+<span class="absolute top-2 right-2 text-primary">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+</span>
+<p class="text-white/60 text-[10px] font-bold uppercase">Juz</p>
+<p class="text-white text-2xl font-black">08</p>
+<img alt="User avatar" class="size-6 rounded-full border border-primary" data-alt="Modern profile photo of a man" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-dqNPw8x026gDFw65JCLFTFNh8s3j5yVZzn6FQp1LUgQhLgu0bckzwZb2b3oSQLErG0tvNipSteSJypzuQAAF5lCN0MgRctre9hnjjNgyMGkv2Du9mSVZYjSWwdOJjSK_SE2SUvOIXDvZmYJ7kK73zQCOM5Xib9BmtwpDIvbUELGQmejXNHJ5iwDabnC6yG9Kkw4VjENCNu6Q9RLJyc-fcR2RgGXNgTwrfu7CI-mi_hzhQfmHic_7u6SnW7zWnA4-HSFPiwhDKK8"/>
+</div>
+<div class="flex flex-col items-center justify-center gap-2 rounded-xl p-4 bg-white/5 border border-white/10 cursor-pointer">
+<p class="text-white/40 text-[10px] font-bold uppercase">Juz</p>
+<p class="text-white/50 text-2xl font-black">09</p>
+<div class="flex size-6 items-center justify-center rounded-full bg-white/10">
+<span class="material-symbols-outlined text-sm text-white/40">add</span>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center gap-2 rounded-xl p-4 bg-white/5 border border-white/10 cursor-pointer">
+<p class="text-white/40 text-[10px] font-bold uppercase">Juz</p>
+<p class="text-white/50 text-2xl font-black">10</p>
+<div class="flex size-6 items-center justify-center rounded-full bg-white/10">
+<span class="material-symbols-outlined text-sm text-white/40">add</span>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center gap-2 rounded-xl p-4 bg-white/5 border border-white/10 cursor-pointer">
+<p class="text-white/40 text-[10px] font-bold uppercase">Juz</p>
+<p class="text-white/50 text-2xl font-black">11</p>
+<div class="flex size-6 items-center justify-center rounded-full bg-white/10">
+<span class="material-symbols-outlined text-sm text-white/40">add</span>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center gap-2 rounded-xl p-4 bg-[#244732] border border-primary/30 relative">
+<span class="absolute top-2 right-2 text-primary">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+</span>
+<p class="text-white/60 text-[10px] font-bold uppercase">Juz</p>
+<p class="text-white text-2xl font-black">12</p>
+<img alt="User avatar" class="size-6 rounded-full border border-primary" data-alt="Small circular profile photo of a woman" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8mQIZnw31kKthK6ash4I2TL6-gBavkw5YVxQ5c6ayFZEx6dd1hPW3pCQG9lGRetFqw6Zp565YPsC0mK-q9sxo5bdN2kvXaEaVJJteTxOwlLjQF8JudSYthaIpivnKoyi31Nsih4Xr__Jx9I-ti-EQKeF7b8a7tS8C9G7S6yXnPyMJy2ip1Vp-76l1n4xnLFJTjR4n0Sp4OBrfOVqb2gMaDrYELgZukjIL6iOYq685DF9kr0HoJRqvtLabRs-iB4YoGkIKVJE66Vg"/>
+</div>
+</div>
+</div>
+<!-- Bottom Navigation Mock (iOS Style) -->
+<div class="fixed bottom-0 w-full bg-background-light dark:bg-background-dark/95 backdrop-blur-md border-t border-white/10 pb-6 pt-2">
+<div class="flex justify-around items-center h-12">
+<div class="flex flex-col items-center text-primary">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="text-[10px] mt-1 font-medium">Reading</span>
+</div>
+<div class="flex flex-col items-center text-white/40">
+<span class="material-symbols-outlined">group</span>
+<span class="text-[10px] mt-1 font-medium">Hatim</span>
+</div>
+<div class="flex flex-col items-center text-white/40">
+<span class="material-symbols-outlined">history</span>
+<span class="text-[10px] mt-1 font-medium">History</span>
+</div>
+<div class="flex flex-col items-center text-white/40">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] mt-1 font-medium">Profile</span>
+</div>
+</div>
+</div>
+</body></html>

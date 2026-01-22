@@ -1,0 +1,25 @@
+{
+    "primary_source": {
+        "repository": "https://github.com/acik-kuran/acikkuran-api",
+        "content_types": [
+            "arabic_text",
+            "arabic_recitation_audio",
+            "turkish_meal_diyanet"
+        ]
+    },
+    "phase_1_strategy": {
+        "mode": "API_FIRST",
+        "store_in_database": false,
+        "cache_policy": "short_term_only"
+    },
+    "phase_2_strategy": {
+        "mode": "OPTIONAL_IMPORT",
+        "store_in_database": true,
+        "trigger_condition": "offline_requirement_or_scaling_need"
+    },
+    "absolute_rules": [
+        "do_not_modify_quran_text",
+        "do_not_generate_quran_content",
+        "use_only_authoritative_sources"
+    ]
+}

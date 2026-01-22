@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dua List &amp; Participation History</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#19e66b",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#112117",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Lexend', sans-serif;
+        }
+        .ios-blur {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            left: 23px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: rgba(25, 230, 107, 0.2);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 ios-blur border-b border-slate-200 dark:border-white/10">
+<div class="flex items-center p-4 pb-3 justify-between">
+<div class="text-slate-900 dark:text-white flex size-10 shrink-0 items-center justify-start cursor-pointer">
+<span class="material-symbols-outlined text-[24px]">arrow_back_ios</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-tight flex-1 text-center">Dua &amp; History</h2>
+<div class="flex w-10 items-center justify-end">
+<button class="flex size-10 cursor-pointer items-center justify-center rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-[24px]">add</span>
+</button>
+</div>
+</div>
+</header>
+<main class="max-w-md mx-auto pb-20">
+<!-- Profile Stats Summary -->
+<div class="flex flex-wrap gap-3 px-4 py-6">
+<div class="flex min-w-[140px] flex-1 flex-col gap-1 rounded-xl border border-slate-200 dark:border-white/10 bg-white/50 dark:bg-white/5 p-4 items-center text-center">
+<p class="text-primary tracking-light text-3xl font-bold leading-tight">42</p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-primary/70">menu_book</span>
+<p class="text-slate-500 dark:text-[#9db8a8] text-xs font-medium uppercase tracking-wider">Total Juz</p>
+</div>
+</div>
+<div class="flex min-w-[140px] flex-1 flex-col gap-1 rounded-xl border border-slate-200 dark:border-white/10 bg-white/50 dark:bg-white/5 p-4 items-center text-center">
+<p class="text-primary tracking-light text-3xl font-bold leading-tight">5</p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-primary/70">favorite</span>
+<p class="text-slate-500 dark:text-[#9db8a8] text-xs font-medium uppercase tracking-wider">Active Duas</p>
+</div>
+</div>
+</div>
+<!-- Segmented Controls -->
+<div class="px-4 mb-4">
+<div class="flex h-11 flex-1 items-center justify-center rounded-xl bg-slate-200/50 dark:bg-white/5 p-1 p-1">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-background-dark has-[:checked]:shadow-sm has-[:checked]:text-primary text-slate-500 dark:text-[#9db8a8] text-sm font-semibold transition-all">
+<span class="truncate">My Duas</span>
+<input checked="" class="invisible w-0" name="view-toggle" type="radio" value="duas"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-background-dark has-[:checked]:shadow-sm has-[:checked]:text-primary text-slate-500 dark:text-[#9db8a8] text-sm font-semibold transition-all">
+<span class="truncate">History</span>
+<input class="invisible w-0" name="view-toggle" type="radio" value="history"/>
+</label>
+</div>
+</div>
+<!-- Section: Active Intentions -->
+<div class="mt-2">
+<div class="flex items-center justify-between px-4 mb-2">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold tracking-tight">Active Intentions</h3>
+<span class="text-primary text-xs font-semibold">Edit All</span>
+</div>
+<div class="space-y-px bg-slate-200/20 dark:bg-white/5 border-y border-slate-200 dark:border-white/10">
+<!-- Dua Item 1 -->
+<div class="flex items-center gap-4 bg-white dark:bg-background-dark px-4 min-h-[72px] py-3 justify-between group">
+<div class="flex items-center gap-4">
+<div class="flex size-6 items-center justify-center">
+<input checked="" class="h-5 w-5 rounded-full border-slate-300 dark:border-white/20 bg-transparent text-primary focus:ring-primary focus:ring-offset-0 focus:outline-none" type="checkbox"/>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-slate-900 dark:text-white text-base font-semibold leading-snug">Family Health &amp; Wellbeing</p>
+<p class="text-slate-500 dark:text-[#9db8a8] text-xs font-normal">Added Oct 24, 2023 • Private</p>
+</div>
+</div>
+<div class="shrink-0 flex gap-2">
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+</div>
+</div>
+<!-- Dua Item 2 -->
+<div class="flex items-center gap-4 bg-white dark:bg-background-dark px-4 min-h-[72px] py-3 justify-between">
+<div class="flex items-center gap-4">
+<div class="flex size-6 items-center justify-center">
+<input class="h-5 w-5 rounded-full border-slate-300 dark:border-white/20 bg-transparent text-primary focus:ring-primary focus:ring-offset-0 focus:outline-none" type="checkbox"/>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-slate-900 dark:text-white text-base font-semibold leading-snug">Success in New Business</p>
+<p class="text-slate-500 dark:text-[#9db8a8] text-xs font-normal">Added Nov 12, 2023 • Shared with Group</p>
+</div>
+</div>
+<div class="shrink-0">
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+</div>
+</div>
+<!-- Dua Item 3 -->
+<div class="flex items-center gap-4 bg-white dark:bg-background-dark px-4 min-h-[72px] py-3 justify-between">
+<div class="flex items-center gap-4">
+<div class="flex size-6 items-center justify-center">
+<input checked="" class="h-5 w-5 rounded-full border-slate-300 dark:border-white/20 bg-transparent text-primary focus:ring-primary focus:ring-offset-0 focus:outline-none" type="checkbox"/>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-slate-900 dark:text-white text-base font-semibold leading-snug">Marhum Grandmother (Zahara B.)</p>
+<p class="text-slate-500 dark:text-[#9db8a8] text-xs font-normal">Added Dec 01, 2023 • Private</p>
+</div>
+</div>
+<div class="shrink-0">
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Section: Participation History (Timeline) -->
+<div class="mt-8 px-4 relative timeline-line">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold tracking-tight mb-6">Recent History</h3>
+<div class="space-y-8">
+<!-- Timeline Item 1 -->
+<div class="relative flex gap-4">
+<div class="z-10 flex size-12 shrink-0 items-center justify-center rounded-full bg-primary text-background-dark shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined font-bold">check_circle</span>
+</div>
+<div class="flex flex-col gap-1 pt-1 pb-4 border-b border-slate-200 dark:border-white/10 flex-1">
+<div class="flex justify-between items-start">
+<h4 class="text-slate-900 dark:text-white font-bold">Ramadan Hatim 2024</h4>
+<span class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Dec 28</span>
+</div>
+<p class="text-slate-500 dark:text-[#9db8a8] text-sm">Completed multiple Juz for the community khatm.</p>
+<div class="flex gap-2 mt-2">
+<span class="px-2 py-0.5 rounded-lg bg-primary/20 text-primary text-[11px] font-bold border border-primary/30">JUZ 29</span>
+<span class="px-2 py-0.5 rounded-lg bg-primary/20 text-primary text-[11px] font-bold border border-primary/30">JUZ 30</span>
+</div>
+</div>
+</div>
+<!-- Timeline Item 2 -->
+<div class="relative flex gap-4">
+<div class="z-10 flex size-12 shrink-0 items-center justify-center rounded-full bg-white dark:bg-white/10 text-primary border-2 border-primary">
+<span class="material-symbols-outlined font-bold">book_5</span>
+</div>
+<div class="flex flex-col gap-1 pt-1 pb-4 border-b border-slate-200 dark:border-white/10 flex-1">
+<div class="flex justify-between items-start">
+<h4 class="text-slate-900 dark:text-white font-bold">Weekly Family Study</h4>
+<span class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Dec 21</span>
+</div>
+<p class="text-slate-500 dark:text-[#9db8a8] text-sm">Offline personal study session.</p>
+<div class="flex gap-2 mt-2">
+<span class="px-2 py-0.5 rounded-lg bg-slate-200 dark:bg-white/5 text-slate-600 dark:text-white/60 text-[11px] font-bold border border-slate-300 dark:border-white/10">JUZ 15</span>
+</div>
+</div>
+</div>
+<!-- Timeline Item 3 -->
+<div class="relative flex gap-4">
+<div class="z-10 flex size-12 shrink-0 items-center justify-center rounded-full bg-white dark:bg-white/10 text-primary border-2 border-primary">
+<span class="material-symbols-outlined font-bold">group</span>
+</div>
+<div class="flex flex-col gap-1 pt-1 pb-4 flex-1">
+<div class="flex justify-between items-start">
+<h4 class="text-slate-900 dark:text-white font-bold">Grandma's Esaal-e-Sawab</h4>
+<span class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Dec 14</span>
+</div>
+<p class="text-slate-500 dark:text-[#9db8a8] text-sm">Special session for Marhum Grandmother.</p>
+<div class="flex gap-2 mt-2">
+<span class="px-2 py-0.5 rounded-lg bg-primary/20 text-primary text-[11px] font-bold border border-primary/30">JUZ 1</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Tab Bar (iOS Style) -->
+<nav class="fixed bottom-0 left-0 right-0 bg-background-light/95 dark:bg-background-dark/95 ios-blur border-t border-slate-200 dark:border-white/10 px-6 pb-6 pt-3 flex justify-between items-center z-50">
+<div class="flex flex-col items-center gap-1 opacity-50">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</div>
+<div class="flex flex-col items-center gap-1 opacity-50">
+<span class="material-symbols-outlined">explore</span>
+<span class="text-[10px] font-medium">Explore</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined fill-1">person</span>
+<span class="text-[10px] font-bold">Profile</span>
+</div>
+<div class="flex flex-col items-center gap-1 opacity-50">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-medium">Settings</span>
+</div>
+</nav>
+</body></html>

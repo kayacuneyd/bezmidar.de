@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Hatim Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#19e66b",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#112117",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Lexend', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .ios-blur {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .islamic-pattern {
+            background-color: #112117;
+            background-image: radial-gradient(#19e66b 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+            opacity: 0.05;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen pb-24">
+<!-- Subtle Background Pattern Overlay -->
+<div class="fixed inset-0 islamic-pattern pointer-events-none"></div>
+<!-- Top App Bar -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 ios-blur px-4 py-3 flex items-center justify-between border-b border-slate-200 dark:border-white/10">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-background-dark">
+<span class="material-symbols-outlined text-lg font-bold">menu_book</span>
+</div>
+<h1 class="text-lg font-bold tracking-tight">HatimConnect</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-slate-500 dark:text-slate-400">
+<span class="material-symbols-outlined">cloud_done</span>
+</button>
+<div class="w-8 h-8 rounded-full border-2 border-primary overflow-hidden">
+<div class="w-full h-full bg-cover bg-center" data-alt="User profile avatar with green border" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDob2rB44Lu0PMNlCTDHq1QPrmwBfLD6_7zXt5pu4kgAh8RJOz3SRDVotFsHsNsZMjbQOPECZqFvco_rS8nfR4qU8GBzesKcuwZ0u3Y-QGTgy33TfKkpmRJa1J3vxynJfesyDeKqBQXrtAP_DsxBBCdNjBMGNF9DPkyv0i-qUdErLdeABH3XRpD3api7rXtV6yDOqqKokf9p9epYf_L6q8S0U_kjVEz3ftQ-rNWfpMIp6ErekuG3J-BixqEmUSAIaFzLh6KpOpaWRw');"></div>
+</div>
+</div>
+</header>
+<main class="relative z-10">
+<!-- Profile Header -->
+<section class="p-4 @container">
+<div class="flex flex-col gap-4 @[520px]:flex-row @[520px]:justify-between @[520px]:items-center">
+<div class="flex gap-4 items-center">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-16 w-16 border-2 border-primary/30" data-alt="Large user profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA3enZy1ILCMg7YLxsx3jqo_HR94P1mmWqexXoC69mj068zFjsitQRZWKXU2zOt_sfHkg_Cs9wNfH6x5ftMH2v5gv2cKi1nYHQLQ3DHqZ-8Cl-C-on0QDBTmiDZ_jvtkMqVxsSJFnFxm-rvx9wc2N379iYGh32EMCJy8KYS9sHJDui_G9VPYbUrd3mmt1KAQHWGS6srsYvx-T8hlSQ_dLTLigmz05B2zLSaX2sMGvoY15EOt2VgEjqqYotpf4i_5vEWVVZIyz_0EVA");'></div>
+<div class="flex flex-col">
+<p class="text-xl font-bold leading-tight tracking-tight">Assalamu Alaikum, Ahmed</p>
+<p class="text-slate-500 dark:text-[#9db8a8] text-sm">Ready for your daily juz?</p>
+</div>
+</div>
+<button class="flex items-center justify-center gap-2 rounded-xl h-11 px-6 bg-primary text-background-dark font-bold text-sm shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-xl">add_circle</span>
+<span>Join New Hatim</span>
+</button>
+</div>
+</section>
+<!-- Stats Overview (Small Row) -->
+<section class="px-4 py-2 flex gap-3 overflow-x-auto no-scrollbar">
+<div class="flex-none bg-white dark:bg-white/5 p-3 rounded-xl border border-slate-200 dark:border-white/10 min-w-[120px]">
+<p class="text-xs text-slate-500 dark:text-slate-400">Total Juz</p>
+<p class="text-lg font-bold">142</p>
+</div>
+<div class="flex-none bg-white dark:bg-white/5 p-3 rounded-xl border border-slate-200 dark:border-white/10 min-w-[120px]">
+<p class="text-xs text-slate-500 dark:text-slate-400">Current Streak</p>
+<p class="text-lg font-bold">12 Days</p>
+</div>
+<div class="flex-none bg-white dark:bg-white/5 p-3 rounded-xl border border-slate-200 dark:border-white/10 min-w-[120px]">
+<p class="text-xs text-slate-500 dark:text-slate-400">Global Rank</p>
+<p class="text-lg font-bold">#482</p>
+</div>
+</section>
+<!-- Section: Active Hatims -->
+<section>
+<div class="flex items-center justify-between px-4 pt-6 pb-2">
+<h2 class="text-xl font-bold tracking-tight">Your Active Hatims</h2>
+<button class="text-primary text-sm font-semibold">See All</button>
+</div>
+<!-- Active Hatim Card 1 -->
+<div class="p-4 @container">
+<div class="flex flex-col rounded-xl overflow-hidden shadow-sm bg-white dark:bg-[#1c2620] border border-slate-200 dark:border-white/5">
+<div class="w-full h-32 bg-center bg-no-repeat bg-cover relative" data-alt="Elegant Islamic geometric art background" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBxID5IYVcHDwTeGiq-N4qDhngcGGAGCXYdRKLdNDjI8pHwHmFodRhorHdxqyNg30jTitvDIeewsUIbZIU6tJ0RWtdeWZM4ftHdbC6KR8lCaXcWvwPtDpV_7Zb78UMggOT6HhKJ-_ByjgarV_UeyCmM38XPwF7UakfjQMkZk3uvBpS8Rehsacsee2q7wInOd6xlEwzShuAQEUDQEqcCrdfLr2lFqtpysIDMeI1sDXRMcr_bKdKApb5Tg3Fat43bBTOJ_T1l3_wFQEw");'>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-3 left-4">
+<span class="bg-primary/90 text-background-dark text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wider">In Progress</span>
+</div>
+</div>
+<div class="flex flex-col p-4 gap-3">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-lg font-bold">Ramadan 2024 Group</h3>
+<p class="text-slate-500 dark:text-[#9db8a8] text-sm">Collective Completion • 12 days left</p>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex justify-between text-xs font-medium">
+<span>Progress: 15/30 Juz</span>
+<span>50%</span>
+</div>
+<div class="h-2 w-full bg-slate-200 dark:bg-white/10 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 50%;"></div>
+</div>
+</div>
+<button class="w-full mt-2 py-2.5 rounded-lg bg-primary/10 dark:bg-primary/20 text-primary font-bold text-sm border border-primary/20 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg">auto_stories</span>
+                            Continue Reading
+                        </button>
+</div>
+</div>
+</div>
+<!-- Active Hatim Card 2 -->
+<div class="px-4 pb-4 @container">
+<div class="flex flex-col rounded-xl overflow-hidden shadow-sm bg-white dark:bg-[#1c2620] border border-slate-200 dark:border-white/5">
+<div class="flex p-4 gap-4">
+<div class="w-20 h-20 rounded-lg bg-slate-100 dark:bg-white/5 flex flex-col items-center justify-center border border-slate-200 dark:border-white/10 shrink-0">
+<span class="text-primary font-bold text-xl leading-none">18</span>
+<span class="text-[10px] uppercase font-bold text-slate-400">Juz</span>
+</div>
+<div class="flex flex-col justify-between flex-1 py-1">
+<div>
+<h3 class="font-bold text-base">Weekly Family Hatim</h3>
+<p class="text-slate-500 dark:text-slate-400 text-xs">Private Group • Ends Friday</p>
+</div>
+<div class="flex items-center gap-2">
+<div class="h-1.5 flex-1 bg-slate-200 dark:bg-white/10 rounded-full">
+<div class="h-full bg-primary rounded-full" style="width: 85%;"></div>
+</div>
+<span class="text-[10px] font-bold">85%</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Public Hatims -->
+<section class="pb-8">
+<div class="flex items-center justify-between px-4 pt-6 pb-2">
+<h2 class="text-xl font-bold tracking-tight">Global Hatims</h2>
+<button class="text-primary text-sm font-semibold">Discover</button>
+</div>
+<div class="px-4 flex flex-col gap-3">
+<!-- Public Item 1 -->
+<div class="flex items-center justify-between p-4 bg-white dark:bg-white/5 rounded-xl border border-slate-200 dark:border-white/10">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">public</span>
+</div>
+<div>
+<p class="font-semibold text-sm">Friday Surah Kahf Community</p>
+<p class="text-xs text-slate-500">2,481 participants</p>
+</div>
+</div>
+<button class="px-4 py-1.5 bg-primary text-background-dark text-xs font-bold rounded-full">Join</button>
+</div>
+<!-- Public Item 2 -->
+<div class="flex items-center justify-between p-4 bg-white dark:bg-white/5 rounded-xl border border-slate-200 dark:border-white/10">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">volunteer_activism</span>
+</div>
+<div>
+<p class="font-semibold text-sm">Palestinian Relief Hatim</p>
+<p class="text-xs text-slate-500">12/50 Hatims complete</p>
+</div>
+</div>
+<button class="px-4 py-1.5 bg-primary text-background-dark text-xs font-bold rounded-full">Join</button>
+</div>
+</div>
+</section>
+</main>
+<!-- iOS Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 z-50 bg-background-light/90 dark:bg-background-dark/90 ios-blur border-t border-slate-200 dark:border-white/10 pb-6 pt-2">
+<div class="max-w-md mx-auto flex justify-around items-center px-4">
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined font-variation-fill">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">explore</span>
+<span class="text-[10px] font-medium">Discover</span>
+</button>
+<div class="relative -top-5">
+<button class="w-14 h-14 rounded-full bg-primary text-background-dark shadow-lg shadow-primary/40 flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl">auto_stories</span>
+</button>
+</div>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">group</span>
+<span class="text-[10px] font-medium">Groups</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</button>
+</div>
+</nav>
+<style>
+        .font-variation-fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</body></html>

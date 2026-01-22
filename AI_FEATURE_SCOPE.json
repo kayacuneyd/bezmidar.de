@@ -1,0 +1,22 @@
+{
+    "must_have_features": [
+        "quran_reading",
+        "juz_based_navigation",
+        "collective_hatim",
+        "invite_based_sharing",
+        "pwa_offline_support"
+    ],
+    "allowed_features": [
+        "profiles",
+        "reading_progress",
+        "hatim_history",
+        "dua_list"
+    ],
+    "explicitly_out_of_scope": [
+        "live_chat",
+        "group_chat",
+        "voice_calls",
+        "video_calls",
+        "social_feed"
+    ]
+}

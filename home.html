@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>HatimConnect - Collective Quran Reading</title>
+    <!-- Google Fonts: Lexend -->
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;display=swap" rel="stylesheet" />
+    <!-- Material Symbols -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec92",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#10221a",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Lexend', sans-serif;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-[#111815] dark:text-white">
+    <!-- TopAppBar -->
+    <nav
+        class="sticky top-0 z-50 flex items-center bg-white/80 dark:bg-background-dark/80 backdrop-blur-md p-4 border-b border-[#dbe6e1] dark:border-[#1e3a2f] justify-between">
+        <div class="flex items-center gap-2">
+            <div class="text-primary flex size-10 shrink-0 items-center justify-center bg-primary/10 rounded-lg">
+                <span class="material-symbols-outlined">menu_book</span>
+            </div>
+            <h2 class="text-[#111815] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">HatimConnect
+            </h2>
+        </div>
+        <div class="flex items-center justify-end">
+            <button
+                class="bg-primary text-[#111815] px-4 py-2 rounded-lg text-sm font-bold tracking-[0.015em] hover:opacity-90 transition-opacity">
+                Get Started
+            </button>
+        </div>
+    </nav>
+    <!-- HeroSection -->
+    <header class="relative overflow-hidden bg-white dark:bg-background-dark">
+        <div class="@container">
+            <div class="flex flex-col gap-6 px-4 py-12 @[480px]:gap-8 @[864px]:flex-row max-w-7xl mx-auto">
+                <div class="w-full bg-center bg-no-repeat aspect-square @[480px]:aspect-video bg-cover rounded-xl shadow-xl @[480px]:h-auto @[480px]:min-w-[400px] @[864px]:w-full"
+                    data-alt="People reading Quran in a modern digital circle"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDo_htxs3KeyZNUWweQdYPUXg0BN4kKtAmCbS5JQ_bI3qByebVBKZIuret9BrsTnciJFmsnZkJREXD3wdZEjRjibO02nfI1URcMKTWCBGXm9T-M6htvDutqNtHGVwQVEfj_F-FJ90vzeOp1zhOVLje8FwIE_zkKEgLMY1UgGjxXBNvea3EPWNFSVX_sSWYXQ8dbg8OMHQ279trz29dekzYRxtazlt2K_yab6YQyrc9aicTJicVd5RwyU6-xlTTpfAsafTt6qNr33lA");'>
+                </div>
+                <div class="flex flex-col gap-6 @[480px]:min-w-[400px] @[480px]:gap-8 @[864px]:justify-center">
+                    <div class="flex flex-col gap-4 text-left">
+                        <span class="text-primary font-bold tracking-widest uppercase text-xs">PWA Experience</span>
+                        <h1
+                            class="text-[#111815] dark:text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl">
+                            Collective Quran Reading, Reimagined
+                        </h1>
+                        <h2
+                            class="text-[#618979] dark:text-[#a1b8af] text-base font-normal leading-relaxed @[480px]:text-lg">
+                            Join global circles, track your progress offline, and connect with the community in one
+                            seamless, spiritual experience.
+                        </h2>
+                    </div>
+                    <div class="flex flex-col gap-3 @[480px]:flex-row">
+                        <button
+                            class="flex min-w-[180px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-6 bg-primary text-[#111815] text-base font-bold shadow-lg shadow-primary/20 hover:scale-[1.02] transition-transform">
+                            <span class="truncate">Start Reading Now</span>
+                        </button>
+                        <button
+                            class="flex min-w-[180px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-6 border border-[#dbe6e1] dark:border-[#1e3a2f] text-[#111815] dark:text-white text-base font-bold hover:bg-background-light dark:hover:bg-[#1e3a2f] transition-colors">
+                            <span class="truncate">Learn More</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- App Walkthrough Video Placeholder -->
+    <section class="p-4 py-10 bg-background-light dark:bg-[#0a1510]">
+        <div class="max-w-4xl mx-auto flex flex-col gap-6">
+            <h3 class="text-center text-xl font-bold dark:text-white">Watch how it works</h3>
+            <div class="relative flex items-center justify-center bg-[#111815] bg-cover bg-center aspect-video rounded-xl shadow-2xl overflow-hidden group border-4 border-white dark:border-[#1e3a2f]"
+                data-alt="App walkthrough interface showcasing Hatim progress"
+                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDkGACZseTVnVoLJs3g9aJXAC3IKL20VhLbjhUdRZB9H04owY7Sm0JxuSN7i8Nwt2awG8thl9nHzFJxERZp_1_uX3LkiEO6QxwZbfZZVwZBoPBCsuzEmKVXp1byo3F9hJFLvhD_taSOgjiyb6D-ldrLkBw0zl4daSk12eKXb-ooA_KTV7lgikVm6mNQKtyRPkwArPXJP5dd7A4blCqDP-KOlJhxORwv9O1pbr4HZMFJ9P8HUj-9hctN8NhgOKVuB4ccpBTMX1IbQgY");'>
+                <div class="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors"></div>
+                <button
+                    class="relative z-10 flex shrink-0 items-center justify-center rounded-full size-20 bg-primary text-[#111815] shadow-xl hover:scale-110 transition-transform">
+                    <span class="material-symbols-outlined !text-4xl fill-1">play_arrow</span>
+                </button>
+                <div class="absolute inset-x-0 bottom-0 px-6 py-5 z-10 bg-gradient-to-t from-black/80 to-transparent">
+                    <div class="flex h-1.5 items-center justify-center mb-2">
+                        <div class="h-1.5 flex-1 rounded-full bg-primary"></div>
+                        <div class="relative">
+                            <div class="absolute -left-2 -top-1 size-3 rounded-full bg-primary shadow-lg"></div>
+                        </div>
+                        <div class="h-1.5 flex-1 rounded-full bg-white/30"></div>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <p class="text-white text-xs font-medium">0:37</p>
+                        <p class="text-white text-xs font-medium">2:23</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- FeatureSection -->
+    <section class="bg-white dark:bg-background-dark">
+        <div class="flex flex-col gap-10 px-4 py-16 max-w-7xl mx-auto @container">
+            <div class="flex flex-col gap-4 text-center items-center">
+                <h2
+                    class="text-[#111815] dark:text-white tracking-light text-3xl font-black leading-tight @[480px]:text-4xl max-w-[720px]">
+                    Experience the Future of Hatim
+                </h2>
+                <p class="text-[#618979] dark:text-[#a1b8af] text-base font-normal leading-relaxed max-w-[600px]">
+                    Designed for the modern reader with a focus on community spirit and universal accessibility.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div
+                    class="flex flex-1 gap-5 rounded-xl border border-[#dbe6e1] dark:border-[#1e3a2f] bg-white dark:bg-[#152a21] p-6 flex-col hover:border-primary/50 transition-colors shadow-sm">
+                    <div class="text-primary bg-primary/10 w-12 h-12 flex items-center justify-center rounded-lg">
+                        <span class="material-symbols-outlined !text-3xl">cloud_off</span>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <h3 class="text-[#111815] dark:text-white text-lg font-bold leading-tight">Offline Reading</h3>
+                        <p class="text-[#618979] dark:text-[#a1b8af] text-sm font-normal leading-relaxed">Read anywhere,
+                            anytime, without an internet connection. Progress syncs automatically when you're back.</p>
+                    </div>
+                </div>
+                <div
+                    class="flex flex-1 gap-5 rounded-xl border border-[#dbe6e1] dark:border-[#1e3a2f] bg-white dark:bg-[#152a21] p-6 flex-col hover:border-primary/50 transition-colors shadow-sm">
+                    <div class="text-primary bg-primary/10 w-12 h-12 flex items-center justify-center rounded-lg">
+                        <span class="material-symbols-outlined !text-3xl">group</span>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <h3 class="text-[#111815] dark:text-white text-lg font-bold leading-tight">Group Hatim Tracking
+                        </h3>
+                        <p class="text-[#618979] dark:text-[#a1b8af] text-sm font-normal leading-relaxed">Real-time
+                            updates on shared Hatim goals. See which parts are being read and celebrate completions
+                            together.</p>
+                    </div>
+                </div>
+                <div
+                    class="flex flex-1 gap-5 rounded-xl border border-[#dbe6e1] dark:border-[#1e3a2f] bg-white dark:bg-[#152a21] p-6 flex-col hover:border-primary/50 transition-colors shadow-sm">
+                    <div class="text-primary bg-primary/10 w-12 h-12 flex items-center justify-center rounded-lg">
+                        <span class="material-symbols-outlined !text-3xl">chat_bubble</span>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <h3 class="text-[#111815] dark:text-white text-lg font-bold leading-tight">Integrated Messaging
+                        </h3>
+                        <p class="text-[#618979] dark:text-[#a1b8af] text-sm font-normal leading-relaxed">Stay motivated
+                            with built-in community chat. Share insights, reminders, and support within your reading
+                            circle.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- TestimonialsSection -->
+    <section class="py-16 bg-background-light dark:bg-[#0a1510]">
+        <h4 class="text-primary text-sm font-bold leading-normal tracking-[0.15em] px-4 mb-2 text-center uppercase">Wall
+            of Love</h4>
+        <h2 class="text-center text-3xl font-black mb-10 dark:text-white">What Our Community Says</h2>
+        <div class="flex flex-col gap-6 px-4 max-w-4xl mx-auto">
+            <div
+                class="bg-white dark:bg-background-dark p-6 rounded-xl border border-[#dbe6e1] dark:border-[#1e3a2f] shadow-sm">
+                <p class="text-[#111815] dark:text-white italic mb-4">"HatimConnect has completely changed how our
+                    family reads together. Even though we are in different cities, we finish a Hatim every month now."
+                </p>
+                <div class="flex items-center gap-3">
+                    <div
+                        class="size-10 rounded-full bg-[#13ec92]/20 flex items-center justify-center font-bold text-primary">
+                        SA</div>
+                    <div>
+                        <p class="text-sm font-bold dark:text-white">Sarah Al-Farsi</p>
+                        <p class="text-xs text-[#618979]">London, UK</p>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="bg-white dark:bg-background-dark p-6 rounded-xl border border-[#dbe6e1] dark:border-[#1e3a2f] shadow-sm">
+                <p class="text-[#111815] dark:text-white italic mb-4">"The offline mode is a lifesaver for my commute.
+                    It's the most polished Quran app I've ever used. The PWA works perfectly on my iPhone."</p>
+                <div class="flex items-center gap-3">
+                    <div
+                        class="size-10 rounded-full bg-[#13ec92]/20 flex items-center justify-center font-bold text-primary">
+                        OM</div>
+                    <div>
+                        <p class="text-sm font-bold dark:text-white">Omar Mansour</p>
+                        <p class="text-xs text-[#618979]">Toronto, CA</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-background-dark border-t border-[#dbe6e1] dark:border-[#1e3a2f] px-4 py-12">
+        <div class="max-w-7xl mx-auto flex flex-col items-center gap-8">
+            <div class="flex items-center gap-2">
+                <div class="text-primary flex size-8 shrink-0 items-center justify-center bg-primary/10 rounded-lg">
+                    <span class="material-symbols-outlined !text-xl">menu_book</span>
+                </div>
+                <h2 class="text-[#111815] dark:text-white text-lg font-bold">HatimConnect</h2>
+            </div>
+            <nav class="flex flex-wrap justify-center gap-6">
+                <a class="text-[#618979] hover:text-primary text-sm font-medium transition-colors" href="#">Privacy
+                    Policy</a>
+                <a class="text-[#618979] hover:text-primary text-sm font-medium transition-colors" href="#">Terms of
+                    Service</a>
+                <a class="text-[#618979] hover:text-primary text-sm font-medium transition-colors" href="#">Support</a>
+                <a class="text-[#618979] hover:text-primary text-sm font-medium transition-colors" href="#">Contact</a>
+            </nav>
+            <div class="flex gap-4">
+                <a class="size-10 rounded-full border border-[#dbe6e1] dark:border-[#1e3a2f] flex items-center justify-center text-[#618979] hover:bg-primary/10 hover:text-primary transition-all"
+                    href="#">
+                    <span class="material-symbols-outlined">share</span>
+                </a>
+                <a class="size-10 rounded-full border border-[#dbe6e1] dark:border-[#1e3a2f] flex items-center justify-center text-[#618979] hover:bg-primary/10 hover:text-primary transition-all"
+                    href="#">
+                    <span class="material-symbols-outlined">alternate_email</span>
+                </a>
+            </div>
+            <p class="text-[#618979] text-xs text-center">
+                © 2024 HatimConnect. Built with love for the Ummah.
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Notification Center - HatimConnect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#10b981", // Emerald Green
+                        "background-light": "#ffffff",
+                        "text-dark": "#1f2937", // Dark Gray
+                        "text-muted": "#6b7280",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer base {
+            .material-symbols-outlined {
+                font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            }
+            body {
+                -webkit-tap-highlight-color: transparent;
+                @apply bg-background-light text-text-dark font-display antialiased;
+            }
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen">
+<div class="max-w-md mx-auto min-h-screen flex flex-col bg-background-light relative overflow-x-hidden">
+<header class="sticky top-0 z-20 bg-white/90 backdrop-blur-md">
+<div class="flex items-center p-4 pb-2 justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">notifications</span>
+<h2 class="text-text-dark text-xl font-bold leading-tight tracking-tight">Notifications</h2>
+</div>
+<button class="flex items-center justify-end">
+<p class="text-primary text-sm font-bold leading-normal tracking-wide hover:opacity-80 transition-opacity">Clear All</p>
+</button>
+</div>
+<div class="h-px bg-slate-100 mx-4 mt-2"></div>
+</header>
+<main class="flex-1 pb-24">
+<section>
+<h3 class="text-text-dark text-sm font-bold uppercase tracking-wider px-4 pb-2 pt-6 opacity-60">Today</h3>
+<div class="divide-y divide-slate-100">
+<div class="flex flex-col gap-1 bg-white px-4 py-4 hover:bg-slate-50 transition-colors">
+<div class="flex items-start gap-4 justify-between">
+<div class="flex items-start gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-12 w-12 border border-slate-100 shrink-0" data-alt="Portrait of a friendly smiling man" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCJVxPw1DDJkwPDVI2epV2vwvOYjd4YMc48YzpUoHGc17kAdA2Baxh7dSXI0MJ-Efl5q-4gyB5A-QrC5l-XJGtBN70y7zufUSGKGPVuPfb7czetifYuQ_5SI3I2TyVNzIr0fXQstCINKI_cPdccgP_gu8WqIVll_X_QZwzOAUHGbtZN91l6daayfZIjfYP22RYZYnZD6hxaMaYjjW3HaUoeyLYK-8yQqqvT_8V4D96BMhoCES9RlE1vqaSi1KoCbX0JaBYx0du1OAo");'>
+</div>
+<div class="flex flex-col">
+<p class="text-text-dark text-base font-semibold leading-tight">New Invitation</p>
+<p class="text-text-muted text-sm font-normal leading-snug mt-1">
+<span class="font-medium text-text-dark">Ahmad</span> invited you to join a Hatim for his late grandfather.
+                                    </p>
+</div>
+</div>
+<div class="shrink-0">
+<p class="text-slate-400 text-xs font-medium">2m ago</p>
+</div>
+</div>
+<div class="flex gap-3 mt-4 ml-15 pl-15">
+<button class="flex-1 cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-primary text-white text-sm font-bold hover:brightness-105 active:scale-95 transition-all">
+<span>Accept</span>
+</button>
+<button class="flex-1 cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-slate-100 text-text-dark text-sm font-bold hover:bg-slate-200 active:scale-95 transition-all">
+<span>Decline</span>
+</button>
+</div>
+</div>
+<div class="flex items-start gap-3 bg-white px-4 py-4 hover:bg-slate-50 transition-colors">
+<div class="text-primary flex items-center justify-center rounded-full bg-primary/10 shrink-0 size-10">
+<span class="material-symbols-outlined text-[20px]">menu_book</span>
+</div>
+<div class="flex-1 flex flex-col">
+<div class="flex justify-between items-start">
+<p class="text-text-dark text-base font-semibold leading-tight">Juz Reminder</p>
+<p class="text-slate-400 text-xs font-medium">3h ago</p>
+</div>
+<p class="text-text-muted text-sm font-normal leading-snug mt-0.5">Your Juz 15 reading is due in 3 hours. Keep up the good work!</p>
+</div>
+</div>
+</div>
+</section>
+<section>
+<h3 class="text-text-dark text-sm font-bold uppercase tracking-wider px-4 pb-2 pt-8 opacity-60">Earlier</h3>
+<div class="divide-y divide-slate-100 border-b border-slate-100">
+<div class="flex items-start gap-3 bg-white px-4 py-4 hover:bg-slate-50 transition-colors">
+<div class="text-primary flex items-center justify-center rounded-full bg-primary/10 shrink-0 size-10">
+<span class="material-symbols-outlined text-[20px]">workspace_premium</span>
+</div>
+<div class="flex-1 flex flex-col">
+<div class="flex justify-between items-start">
+<p class="text-text-dark text-base font-semibold leading-tight">Hatim Completed</p>
+<p class="text-slate-400 text-xs font-medium">Yesterday</p>
+</div>
+<p class="text-text-muted text-sm font-normal leading-snug mt-0.5">Mabruk! The Hatim 'Ramadan Daily' is now complete. May Allah accept it.</p>
+</div>
+</div>
+<div class="flex items-start gap-3 bg-white px-4 py-4 hover:bg-slate-50 transition-colors opacity-70">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-10 w-10 border border-slate-100 shrink-0 grayscale" data-alt="Profile picture of a smiling woman" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCafWY2X6BMY2SbDCif13pXEZga_fuIk1STXrWxeKyn4f5C_irIglR2Z6ENT9uBWJQIt8a4kcdbEQyjHLu_l1O3Rw2BYJ9wKGJRqQDgLjvR3xE5zNnj3RVwGzmO_WMU-sc6DR5HSYooF2GfNzxtH8-ph22GiIhBixURQ_Orrj_XWZ24CIvzdSVwGo3Rx3m2D9Iw6W6Z1pYY8JBILwCWMj3R7-_iGorpKSVtdUzvoiCMWVPzLolda6RACMp-BoZTwR3e5M4zPz4mDJQ");'>
+</div>
+<div class="flex-1 flex flex-col">
+<div class="flex justify-between items-start">
+<p class="text-text-dark text-base font-semibold leading-tight">Invitation Expired</p>
+<p class="text-slate-400 text-xs font-medium">2d ago</p>
+</div>
+<p class="text-text-muted text-sm font-normal leading-snug mt-0.5">The invitation from Sara to join 'Community Khatm' has expired.</p>
+</div>
+</div>
+<div class="flex items-start gap-3 bg-white px-4 py-4 hover:bg-slate-50 transition-colors">
+<div class="text-primary flex items-center justify-center rounded-full bg-primary/10 shrink-0 size-10">
+<span class="material-symbols-outlined text-[20px]">cloud_done</span>
+</div>
+<div class="flex-1 flex flex-col">
+<div class="flex justify-between items-start">
+<p class="text-text-dark text-base font-semibold leading-tight">Sync Successful</p>
+<p class="text-slate-400 text-xs font-medium">3d ago</p>
+</div>
+<p class="text-text-muted text-sm font-normal leading-snug mt-0.5">Your offline reading progress has been successfully synced.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md bg-white/95 backdrop-blur-xl border-t border-slate-100 px-6 py-3 pb-8 flex justify-between items-center z-30">
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined text-[24px]">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined text-[24px]">book</span>
+<span class="text-[10px] font-medium">My Hatims</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">notifications</span>
+<span class="text-[10px] font-bold">Alerts</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined text-[24px]">settings</span>
+<span class="text-[10px] font-medium">Settings</span>
+</button>
+</nav>
+</div>
+
+</body></html>

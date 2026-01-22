@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Invite Participants - HatimConnect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#19e66b",
+                        "emerald-custom": "#10b981",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#0a1a12",
+                        "card-bg": "#112117",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "3xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            font-family: "Lexend", sans-serif;
+            -webkit-tap-highlight-color: transparent;
+            background-color: #0a1a12;
+            color: white;
+        }
+        .islamic-pattern {
+            background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuCdJLrKl4xn6ihPK-oCxLIJYBg4CRt95aBTJEu-X6cJtrvnq5EhqdOZFYGvKB6RHCsDEsX8SehnLjdQZImxgrp4855K2DBxJMl8ORglSZvytYH8ziHCnfiiAemRMK-_HcszBg5rEu5x67e811oXNsE0SIz_TFBSFrUyeGHjhSjRN50KoCB_uuy2zsBooL7BNusWR0vXhCb4S0zEwJ4rTCCR1Vt1X_7EGf9RDyxo7EI7WVeWHP_tjaRaqWnGF7XEXf5LUk_yPEsqcFY);
+            background-size: 240px;
+            background-repeat: repeat;
+            opacity: 0.1;
+        }
+        .ios-blur {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .ios-btn-active:active {
+            transform: scale(0.97);
+            opacity: 0.8;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen flex flex-col">
+<header class="relative pt-12 pb-8 px-6 overflow-hidden">
+<div class="absolute inset-0 islamic-pattern"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-emerald-custom/10 to-transparent"></div>
+<nav class="relative z-10 flex items-center justify-between mb-8">
+<button class="w-10 h-10 flex items-center justify-center bg-white/5 rounded-full ios-btn-active">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</button>
+<h1 class="text-xl font-semibold">Invite Friends</h1>
+<div class="w-10"></div>
+</nav>
+<div class="relative z-10 bg-card-bg/60 border border-white/10 rounded-3xl p-5 ios-blur shadow-xl">
+<div class="flex items-center gap-4">
+<div class="h-14 w-14 bg-gradient-to-br from-emerald-custom to-primary rounded-2xl flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-background-dark text-3xl font-bold">auto_stories</span>
+</div>
+<div>
+<h2 class="text-lg font-bold leading-tight">Ramadan Kareem Hatim</h2>
+<p class="text-emerald-custom text-sm font-medium">12 Juz remaining to complete</p>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-1 px-6 pb-12 space-y-8">
+<section>
+<label class="block text-[10px] font-bold uppercase tracking-[0.2em] text-emerald-custom/80 mb-3 ml-1">Unique Invite Link</label>
+<div class="flex items-center gap-2 p-1.5 bg-white/5 border border-white/10 rounded-2xl">
+<input class="flex-1 bg-transparent border-none focus:ring-0 text-sm px-3 text-white/70" readonly="" value="hatimconnect.app/join/ramadan24-x92k"/>
+<button class="flex items-center gap-2 bg-emerald-custom text-background-dark px-4 py-2.5 rounded-xl font-bold text-sm ios-btn-active transition-all">
+<span class="material-symbols-outlined text-lg">content_copy</span>
+<span>Copy</span>
+</button>
+</div>
+</section>
+<section>
+<label class="block text-[10px] font-bold uppercase tracking-[0.2em] text-emerald-custom/80 mb-4 ml-1">Quick Share</label>
+<div class="grid grid-cols-3 gap-3">
+<button class="flex flex-col items-center gap-2 p-4 bg-white/5 border border-white/5 rounded-2xl ios-btn-active">
+<div class="w-12 h-12 bg-[#25D366]/20 text-[#25D366] rounded-full flex items-center justify-center">
+<svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+</div>
+<span class="text-xs font-medium text-white/60">WhatsApp</span>
+</button>
+<button class="flex flex-col items-center gap-2 p-4 bg-white/5 border border-white/5 rounded-2xl ios-btn-active">
+<div class="w-12 h-12 bg-[#0088cc]/20 text-[#0088cc] rounded-full flex items-center justify-center">
+<svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18.717-.962 4.084-1.362 5.441-.168.57-.493 1.219-.738 1.219-.533 0-1.285-.396-1.885-.787-.417-.271-1.307-.913-1.428-1.018-.121-.105-.245-.259-.033-.497.212-.238 1.956-1.812 2.766-2.583.125-.119.248-.276.012-.444-.236-.168-.584-.04-.841.058-.363.138-5.753 3.655-6.143 3.911-.39.256-.743.344-1.076.324-.333-.02-.976-.188-1.454-.339-.584-.184-1.047-.282-1.006-.596.022-.164.249-.333.681-.507 2.665-1.127 4.442-1.874 5.331-2.24 2.536-1.044 3.062-1.226 3.404-1.232.075-.001.242.016.35.105.092.075.118.176.126.254.01.077.014.23-.004.446z"></path></svg>
+</div>
+<span class="text-xs font-medium text-white/60">Telegram</span>
+</button>
+<button class="flex flex-col items-center gap-2 p-4 bg-white/5 border border-white/5 rounded-2xl ios-btn-active">
+<div class="w-12 h-12 bg-white/10 text-white rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl">mail</span>
+</div>
+<span class="text-xs font-medium text-white/60">Email</span>
+</button>
+</div>
+</section>
+<section>
+<div class="flex items-center justify-between mb-4">
+<label class="block text-[10px] font-bold uppercase tracking-[0.2em] text-emerald-custom/80 ml-1">Suggested Friends</label>
+<a class="text-xs text-emerald-custom font-semibold" href="#">View All</a>
+</div>
+<div class="space-y-3">
+<div class="flex items-center justify-between p-4 bg-white/5 border border-white/5 rounded-2xl">
+<div class="flex items-center gap-3">
+<div class="relative">
+<img alt="Omar" class="w-12 h-12 rounded-full bg-emerald-custom/10 p-1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDq_WTsVg8CqVYxv4mMlRKw1aYZPkv9i7vQDL1yF4MKWU__vFq4JvF_cTJda0T2trihJozd-NT-U91YXol_zgcvKMbKIgjESnBVGLQPXloa9pAp4rlcRHVpWmWA_7nwXLvnZkhbPQmW2DxFrzhSQPHVl12YB0a9Af4oGZbqY3nwi_rZtNAui5ckBk5-fWIaHDT67IkjUYk5n0hptLW9sGYl4pOwK8HgzQiXguCt-dMChNG4bbNAClC3NOsl8EGmEswl5Fn0JEZv3L0"/>
+<div class="absolute bottom-0 right-0 w-3 h-3 bg-primary rounded-full border-2 border-background-dark"></div>
+</div>
+<div>
+<h3 class="font-bold text-sm">Omar Farooq</h3>
+<p class="text-[10px] text-white/40 uppercase tracking-wider">Top Reader • Level 12</p>
+</div>
+</div>
+<button class="px-4 py-2 bg-white/10 hover:bg-emerald-custom hover:text-background-dark transition-all rounded-xl text-xs font-bold ios-btn-active">
+                        Invite
+                    </button>
+</div>
+<div class="flex items-center justify-between p-4 bg-white/5 border border-white/5 rounded-2xl">
+<div class="flex items-center gap-3">
+<div class="relative">
+<img alt="Aisha" class="w-12 h-12 rounded-full bg-emerald-custom/10 p-1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRQcMp6P47edCEXede1RfsyaLqBrbSAuRydxIh7hlN6UL9wGMRQQvkvNjgw7Xzci6zhGni3n26jo9584M3I5ozcKe9L6xbfU8u93-Gq9yfrAfw7ietn4bWITqEdLgtlC9kQhbXFvvnfe3zTMcG3ttvD3mSt__5f0gMf2SZryGuytrSvdUJ90Q_ByEpEPlFXb5ki73YMrH35DdglTIzUlFlavr62Gv3Lv5jsF5yuy_dApCTHbN-g0Eq8qimDI-_iyuvRB_WepVsHKk"/>
+<div class="absolute bottom-0 right-0 w-3 h-3 bg-white/30 rounded-full border-2 border-background-dark"></div>
+</div>
+<div>
+<h3 class="font-bold text-sm">Aisha Siddiqui</h3>
+<p class="text-[10px] text-white/40 uppercase tracking-wider">Last seen 2h ago</p>
+</div>
+</div>
+<button class="px-4 py-2 bg-white/10 hover:bg-emerald-custom hover:text-background-dark transition-all rounded-xl text-xs font-bold ios-btn-active">
+                        Invite
+                    </button>
+</div>
+<div class="flex items-center justify-between p-4 bg-white/5 border border-white/5 rounded-2xl">
+<div class="flex items-center gap-3">
+<div class="relative">
+<img alt="Hamza" class="w-12 h-12 rounded-full bg-emerald-custom/10 p-1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAm1bHz2hyP01Y_c8LGJ7JIUVIMIFqxTkIUYR4Coh52NQHfAgFLbMOFtSAxMJYCJMsXvwpnbfcp4f1OULut1uo33LToAwc08UzSX0Tbso0ot_BV3NW4RkUMk7a3Vpa7owP8EOqpD-NSirhQ3dQyJmO8BZ4jThvd33QuVKdYY_eYPrqyVNDYUea86ZwxZ-RFH_NFeXWRojvRNwyC0yCio1VX2ckl3wNliVVSH2F318S0N8L8CKp4UT6KPCDSFdztxwChSUa_CXTK0rw"/>
+<div class="absolute bottom-0 right-0 w-3 h-3 bg-primary rounded-full border-2 border-background-dark"></div>
+</div>
+<div>
+<h3 class="font-bold text-sm">Hamza Yusuf</h3>
+<p class="text-[10px] text-white/40 uppercase tracking-wider">Hafiz • Community Member</p>
+</div>
+</div>
+<button class="px-4 py-2 bg-emerald-custom/20 text-emerald-custom rounded-xl text-xs font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">check</span>
+                        Sent
+                    </button>
+</div>
+<div class="flex items-center justify-between p-4 bg-white/5 border border-white/5 rounded-2xl opacity-60">
+<div class="flex items-center gap-3">
+<div class="relative">
+<img alt="Zainab" class="w-12 h-12 rounded-full bg-emerald-custom/10 p-1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZvG_QFlRNeAv82Uw84A4Wfd5_TBYw6luHqnR5G1eSyz_yWgFSZ5-fjJWejt3ZhYDUzg7zcQjBAIWiaN_a7J3E4uKeXm-tC2_qOi-glK0dDyD9NzJvG9jatFzxoAjQJch5utofSzS6xIJ9On5CGOPE_-oc6cXjQyKpx--BhSWB6OVYskYSfWIjecwAFgklUdhu5JvrACt5ZtiOlhVxBzhjSU3LrJfoOjrMVGeuC3-lu-s-VRO_TEcgu16UZIqioy9ff7YHQvyRjTU"/>
+</div>
+<div>
+<h3 class="font-bold text-sm">Zainab Khan</h3>
+<p class="text-[10px] text-white/40 uppercase tracking-wider">Offline</p>
+</div>
+</div>
+<button class="px-4 py-2 bg-white/10 rounded-xl text-xs font-bold ios-btn-active">
+                        Invite
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<nav class="sticky bottom-0 bg-background-dark/80 ios-blur border-t border-white/5 px-8 pt-4 pb-10">
+<div class="flex justify-between items-center max-w-sm mx-auto">
+<button class="text-white/40 flex flex-col items-center gap-1">
+<span class="material-symbols-outlined">home</span>
+</button>
+<button class="text-white/40 flex flex-col items-center gap-1">
+<span class="material-symbols-outlined">menu_book</span>
+</button>
+<button class="w-14 h-14 bg-emerald-custom text-background-dark rounded-full -mt-10 shadow-lg shadow-emerald-500/20 flex items-center justify-center ios-btn-active">
+<span class="material-symbols-outlined text-3xl font-bold">person_add</span>
+</button>
+<button class="text-white/40 flex flex-col items-center gap-1">
+<span class="material-symbols-outlined">groups</span>
+</button>
+<button class="text-white/40 flex flex-col items-center gap-1">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+</nav>
+
+</body></html>
